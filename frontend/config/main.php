@@ -9,7 +9,9 @@ $params = array_merge(
 return [
     'id' => 'app-frontend',
     'language'=>'uz',
-
+    'homeUrl'=>'/',
+    'defaultRoute'=>'ogani/index',
+    'layout'=>'ogani',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
