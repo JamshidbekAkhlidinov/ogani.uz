@@ -9,6 +9,7 @@ $params = array_merge(
 return [
     'id' => 'app-backend',
     'layout'=>'admin',
+    'language'=>'uz',
     'defaultRoute'=>'dashboard/index',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',

@@ -12,17 +12,19 @@ AdminAsset::register($this);
 
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" class="h-100">
+
 <head>
-<meta charset="<?= Yii::$app->charset ?>">
+    <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <?php $this->head() ?>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
-<?php $this->beginBody() ?>
+    <?php $this->beginBody() ?>
     <div class="wrapper">
         <header class="main-header">
 
@@ -45,13 +47,15 @@ AdminAsset::register($this);
 
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="<?=url::to('@web/dist/img/user2-160x160.jpg')?>" class="user-image" alt="User Image">
+                                <img src="<?=url::to('@web/dist/img/user2-160x160.jpg')?>" class="user-image"
+                                    alt="User Image">
                                 <span class="hidden-xs">Alexander Pierce</span>
                             </a>
                             <ul class="dropdown-menu">
 
                                 <li class="user-header">
-                                    <img src="<?=url::to('@web/dist/img/user2-160x160.jpg')?>" class="img-circle" alt="User Image">
+                                    <img src="<?=url::to('@web/dist/img/user2-160x160.jpg')?>" class="img-circle"
+                                        alt="User Image">
                                     <p>
                                         Alexander Pierce - Web Developer
                                         <small>Member since Nov. 2012</small>
@@ -107,14 +111,19 @@ AdminAsset::register($this);
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="active">
-                        <a href="#">
+                        <a href="<?=url::home()?>">
                             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                         </a>
                     </li>
-     
+                    <li>
+                        <a href="<?=url::to(['shop-category/index'])?>">
+                            <i class="fa fa-dashboard"></i> <span>Shop Category</span>
+                        </a>
+                    </li>
+
                 </ul>
 
-                
+
             </section>
 
         </aside>
@@ -133,16 +142,21 @@ AdminAsset::register($this);
             </section>
 
             <section class="content">
+                <?php if(Yii::$app->controller->getRoute()!=="dashboard/index"){?>
+                <div class="box box-success box-header">
+                    <?=$content?>
+                </div>
+                <?php }else{?>
+                <?=$content?>
+                <?php }?>
 
-              <?=$content?>
-              
             </section>
 
-          
+
 
         </div>
 
-        
+
 
         <footer class="main-footer">
             <div class="pull-right hidden-xs">

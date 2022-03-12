@@ -13,13 +13,13 @@ use yii\helpers\Url;
                                 src="<?=url::to('@web/img/product/details/product-details-1.jpg')?>" alt="">
                         </div>
                         <div class="product__details__pic__slider owl-carousel">
-                            <img data-imgbigurl="img/product/details/product-details-2.jpg')?>"
+                            <img data-imgbigurl="<?=url::to('@web/img/product/details/product-details-2.jpg')?>"
                                 src="<?=url::to('@web/img/product/details/thumb-1.jpg')?>" alt="">
-                            <img data-imgbigurl="img/product/details/product-details-3.jpg')?>"
+                            <img data-imgbigurl="<?=url::to('@web/img/product/details/product-details-3.jpg')?>"
                                 src="<?=url::to('@web/img/product/details/thumb-2.jpg')?>" alt="">
-                            <img data-imgbigurl="img/product/details/product-details-5.jpg')?>"
+                            <img data-imgbigurl="<?=url::to('@web/img/product/details/product-details-5.jpg')?>"
                                 src="<?=url::to('@web/img/product/details/thumb-3.jpg')?>" alt="">
-                            <img data-imgbigurl="img/product/details/product-details-4.jpg')?>"
+                            <img data-imgbigurl="<?=url::to('@web/img/product/details/product-details-4.jpg')?>"
                                 src="<?=url::to('@web/img/product/details/thumb-4.jpg')?>" alt="">
                         </div>
                     </div>

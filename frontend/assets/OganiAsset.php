@@ -30,7 +30,7 @@ class OganiAsset extends AssetBundle
         'js/main.js',
     ];
     public $depends = [
-        'yii\web\YiiAsset',
+        // 'yii\web\YiiAsset',
         'yii\bootstrap4\BootstrapAsset',
     ];
 }
