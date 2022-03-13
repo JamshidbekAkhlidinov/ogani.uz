@@ -5,6 +5,7 @@ use yii\helpers\Url;
 use yii\widgets\Pjax;
 $this->title = "Shop- grid";
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
 
     <!-- Product Section Begin -->
@@ -172,37 +173,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-7">
-                    <div class="product__discount">
-                        <div class="section-title product__discount__title">
-                            <h2>Sale Off</h2>
-                        </div>
-                        <div class="row">
-                            <div class="product__discount__slider owl-carousel">
 
-                            <?php foreach($models as $model):?>
-                                <div class="col-lg-4">
-                                    <div class="product__discount__item">
-                                        <div class="product__discount__item__pic set-bg"
-                                            data-setbg="<?=url::to('/backend/web/imgs/products/'.$model->imgs[0]->name)?>">
-                                            <div class="product__discount__percent">-<?=$model->sale?>%</div>
-                                            <ul class="product__item__pic__hover">
-                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="product__discount__item__text">
-                                            <span><?=$model->category->category_name?></span>
-                                            <h5><a href="<?=url::to(['ogani/shop-details','id'=>$model->id])?>"><?=$model->name?></a></h5>
-                                            <div class="product__item__price">$<?=$model->price_new?> <span>$<?=$model->price?></span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endforeach;?>
-                                
-                            </div>
-                        </div>
-                    </div>
                     <div class="filter__item">
                         <div class="row">
                             <div class="col-lg-4 col-md-5">
@@ -228,7 +199,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                     </div>
                     <div class="row">
-                        <?php foreach($model2 as $model):?>
+                        
+                        <?php if(count($models)>0){ foreach($models as $model):?>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="<?=url::to('/backend/web/imgs/products/'.$model->imgs[0]->name)?>">
@@ -244,7 +216,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </div>
                             </div>
                         </div>
-                        <?php endforeach;?>
+                        <?php endforeach;}else{?>
+                        <h2 class="alert alert-danger">BU bolim bo'sh</h2>
+                        <?php }?>
                     </div>
     
                       <?php

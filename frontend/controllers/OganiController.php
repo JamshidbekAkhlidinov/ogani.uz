@@ -3,11 +3,12 @@
 namespace frontend\controllers;
 
 use common\models\Shop;
+use common\models\ShopCategory;
 use yii\data\Pagination;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-
+use yii\web\NotFoundHttpException;
 class OganiController extends Controller
 {
 
@@ -60,7 +61,23 @@ class OganiController extends Controller
     public function actionShopDetails($id)
     {
         $model = Shop::findOne($id);
-        return $this->render('shop-details',['model'=>$model]);
+        if($model!==null){
+            return $this->render('shop-details',['model'=>$model]);
+        }else{
+            throw new \yii\web\HttpException(404, 'The requested Item could not be found.');
+       }
+}
+
+
+    public function actionCategory($id){
+        $category = Shop::find()->where('category_id='.$id);
+        $page = new Pagination([
+            'defaultPageSize'=>12,
+            'totalCount'=>$category->count(),
+        ]);
+        $products = $category->offset($page->offset)->limit($page->limit)->all();
+
+        return $this->render('category',['models'=>$products,'page'=>$page]);
     }
 
     public function actionShopingCart()
