@@ -29,7 +29,7 @@ class Shop extends \yii\db\ActiveRecord
                     'uz' => 'Uzbek',
                 ],
                 'attributes' => [
-                    'name', 'shipping','weight','content',
+                    'name', 'shipping','content',
                 ]
             ],
             TimestampBehavior::class,
@@ -66,10 +66,13 @@ class Shop extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'img' => Yii::t('app', 'Img'),
-            'category_id' => Yii::t('app', 'Category ID'),
+            'category_id' => Yii::t('app', 'Category nomi'),
             'price' => Yii::t('app', 'Eski narxi'),
             'price_new' => Yii::t('app', 'Yangi narxi'),
             'status' => Yii::t('app', 'Status'),
+            'shipping' => Yii::t('app', 'Yetkazib berish'),
+            'sale' => Yii::t('app', 'Skidkasi % da'),
+            'weight' => Yii::t('app', 'Og\'irligi'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
             'created_by' => Yii::t('app', 'Created By'),

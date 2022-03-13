@@ -1,5 +1,9 @@
 <?php
+
+use yii\bootstrap4\LinkPager;
 use yii\helpers\Url;
+use yii\widgets\Pjax;
+
 $this->title = "Shop- grid";
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -250,12 +254,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                         <?php endforeach;?>
                     </div>
-                    <div class="product__pagination">
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#"><i class="fa fa-long-arrow-right"></i></a>
-                    </div>
+    
+                      <?php
+                      echo LinkPager::widget([
+                          'pagination'=>$page,
+                      ]);
+                      ?>
+
                 </div>
             </div>
         </div>
