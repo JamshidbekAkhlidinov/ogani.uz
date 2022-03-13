@@ -65,7 +65,7 @@ class ShopController extends DefaultController
     public function actionCreate()
     {
         $model = new Shop();
-
+        $model->scenario = Shop::CREATE;
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
                 $imgs = UploadedFile::getInstances($model,'img');
@@ -102,8 +102,21 @@ class ShopController extends DefaultController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+        $model->scenario = Shop::UPDATE;
+        if ($this->request->isPost && $model->load($this->request->post())) {
+            $imgs = UploadedFile::getInstances($model,'img');
+            $model->img = 'photo';
+            $model->save();
+            if($imgs){
+                foreach($imgs as $img){
+                    $photo = new ProductsImgs();
+                    $name  = Yii::$app->getSecurity()->generateRandomString(10).".".$img->extension;
+                    $img->saveAs("imgs/products/".$name);
+                    $photo->name = $name;
+                    $photo->products_id = $model->id;
+                    $photo->save();
+                }
+            }   
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -121,9 +134,24 @@ class ShopController extends DefaultController
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
+        $model =  Shop::findOne($id);
+        foreach($model->imgs as $img){
+            if(file_exists('imgs/products/'.$img->name)){
+                unlink('imgs/products/'.$img->name);
+            }
+        }
+        $model->delete();
         return $this->redirect(['index']);
+    }
+
+
+    public function actionDelimg($id){
+        $model = ProductsImgs::findOne($id);
+        if(file_exists('imgs/products/'.$model->name)){
+           unlink('imgs/products/'.$model->name);
+        }
+        $model->delete();
+        return $this->redirect(Yii::$app->request->referrer);
     }
 
     /**

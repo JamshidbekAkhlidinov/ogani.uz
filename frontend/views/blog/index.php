@@ -1,5 +1,7 @@
 <?php
 use yii\helpers\Url;
+$this->title = "Blog";
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <!-- Blog Section Begin -->
     <section class="blog spad">

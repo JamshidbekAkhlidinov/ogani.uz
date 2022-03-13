@@ -1,5 +1,7 @@
 <?php
 use yii\helpers\Url;
+$this->title = $model->name;
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 
     <!-- Product Details Section Begin -->
@@ -9,24 +11,18 @@ use yii\helpers\Url;
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
-                            <img class="product__details__pic__item--large"
-                                src="<?=url::to('@web/img/product/details/product-details-1.jpg')?>" alt="">
+                            <img class="product__details__pic__item--large" src="<?=url::to('/backend/web/imgs/products/'.$model->imgs[0]->name)?>" alt="<?=$model->name?>">
                         </div>
                         <div class="product__details__pic__slider owl-carousel">
-                            <img data-imgbigurl="<?=url::to('@web/img/product/details/product-details-2.jpg')?>"
-                                src="<?=url::to('@web/img/product/details/thumb-1.jpg')?>" alt="">
-                            <img data-imgbigurl="<?=url::to('@web/img/product/details/product-details-3.jpg')?>"
-                                src="<?=url::to('@web/img/product/details/thumb-2.jpg')?>" alt="">
-                            <img data-imgbigurl="<?=url::to('@web/img/product/details/product-details-5.jpg')?>"
-                                src="<?=url::to('@web/img/product/details/thumb-3.jpg')?>" alt="">
-                            <img data-imgbigurl="<?=url::to('@web/img/product/details/product-details-4.jpg')?>"
-                                src="<?=url::to('@web/img/product/details/thumb-4.jpg')?>" alt="">
+                            <?php  foreach($model->imgs as $img):?>
+                            <img data-imgbigurl="<?=url::to('/backend/web/imgs/products/'.$img->name)?>" src="<?=url::to('/backend/web/imgs/products/'.$img->name)?>" alt="<?=$model->name?>">
+                          <?php endforeach;?>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__text">
-                        <h3>Vetgetable’s Package</h3>
+                        <h3><?=$model->name?></h3>
                         <div class="product__details__rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -35,10 +31,8 @@ use yii\helpers\Url;
                             <i class="fa fa-star-half-o"></i>
                             <span>(18 reviews)</span>
                         </div>
-                        <div class="product__details__price">$50.00</div>
-                        <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
-                            vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit amet
-                            quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
+                        <div class="product__details__price">$<?=$model->price_new?></div>
+                        <p><?=$model->content?></p>
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
@@ -50,8 +44,8 @@ use yii\helpers\Url;
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
                             <li><b>Availability</b> <span>In Stock</span></li>
-                            <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
-                            <li><b>Weight</b> <span>0.5 kg</span></li>
+                            <li><b>Shipping</b> <span><?=$model->shipping?></span></li>
+                            <li><b>Weight</b> <span><?=$model->weight?> kg</span></li>
                             <li><b>Share on</b>
                                 <div class="share">
                                     <a href="#"><i class="fa fa-facebook"></i></a>

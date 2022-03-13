@@ -29,7 +29,7 @@ class Shop extends \yii\db\ActiveRecord
                     'uz' => 'Uzbek',
                 ],
                 'attributes' => [
-                    'name', 'shipping','weight','content','sale',
+                    'name', 'shipping','weight','content',
                 ]
             ],
             TimestampBehavior::class,
@@ -37,13 +37,20 @@ class Shop extends \yii\db\ActiveRecord
         ];
     }
 
+    const CREATE = 'create';
+    const UPDATE = 'update';
+
     public function rules()
     {
         return [
-            [['category_id', 'status', 'created_at', 'updated_at', 'created_by', 'updated_by'], 'integer'],
-            [['img','name', 'shipping','weight'], 'string', 'max' => 255],
+            [['category_id', 'status','weight', 'created_at', 'updated_at', 'created_by', 'updated_by'], 'integer'],
+            [['img','name', 'shipping'], 'string', 'max' => 255],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => ShopCategory::className(), 'targetAttribute' => ['category_id' => 'id']],
-            [['img','category_id','status','price', 'price_new','name', 'shipping','weight','content','sale'], 'required'],
+
+            [['img','category_id','status','price', 'price_new','name', 'shipping','weight','content','sale'], 'required','on'=>self::CREATE],
+
+            [['category_id','status','price', 'price_new','name', 'shipping','weight','content','sale'], 'required','on'=>self::UPDATE],
+            
             ['content','string'],
             [['price', 'price_new','sale'],'integer'],
         ];
@@ -78,6 +85,10 @@ class Shop extends \yii\db\ActiveRecord
     public function getCategory()
     {
         return $this->hasOne(ShopCategory::className(), ['id' => 'category_id']);
+    }
+
+    public function getImgs(){
+        return $this->hasMany(ProductsImgs::className(),['products_id'=>'id']);
     }
 
     

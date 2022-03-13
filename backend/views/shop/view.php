@@ -1,8 +1,7 @@
 <?php
 
 use common\models\ProductsImgs;
-use yii\bootstrap4\Html as Bootstrap4Html;
-use yii\helpers\Html;
+use yii\bootstrap4\Html;
 use yii\helpers\Url;
 use yii\widgets\DetailView;
 
@@ -88,7 +87,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php
 $rasmlar = ProductsImgs::find()->where('products_id='.$model->id)->all();
 foreach($rasmlar as $rasm){
-    echo Bootstrap4Html::img(Url::to('/backend/web/imgs/products/'.$rasm->name),['height'=>'200px']);
+    echo html::a(Html::img(Url::to('/backend/web/imgs/products/'.$rasm->name),['height'=>'200px']),url::to(['shop/delimg','id'=>$rasm->id]));
 }
 
 ?>

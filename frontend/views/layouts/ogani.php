@@ -145,7 +145,7 @@ OganiAsset::register($this);
                         <ul>
                             <li class="<?=(Yii::$app->controller->getRoute()=='ogani/index')?'active':''?>"><a href="<?=url::home()?>">Home</a></li>
                             <li class="<?=(Yii::$app->controller->getRoute()=='ogani/shop-grid')?'active':''?>"><a href="<?=url::to(['ogani/shop-grid'])?>">Shop</a></li>
-                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/index')?'active':''?>"><a href="#">Pages</a>
+                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/pages')?'active':''?>"><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="<?=url::to(['ogani/shop-details'])?>">Shop Details</a></li>
                                     <li><a href="<?=url::to(['ogani/shoping-cart'])?>">Shoping Cart</a></li>
@@ -185,7 +185,25 @@ OganiAsset::register($this);
                             <i class="fa fa-bars"></i>
                             <span>All departments</span>
                         </div>
-                        <ul style=<?=(Yii::$app->controller->getRoute()!=='ogani/index')?'display:none':''?>>
+
+                        <?php
+
+                            if(Yii::$app->controller->getRoute()=='ogani/index'){
+                                $style = "";
+                            }else{
+                                $style ='display:none;';
+                                echo " <style>
+                                .royxat{
+                                    position: absolute;
+                                    width: 90%;
+                                    z-index: 9;
+                                    background-color: white;
+                                }
+                            </style>";
+                            }
+            
+                        ?>
+                        <ul style='<?=$style?>' class="royxat">
                             <li><a href="#">Fresh Meat</a></li>
                             <li><a href="#">Vegetables</a></li>
                             <li><a href="#">Fruit & Nut Gifts</a></li>
@@ -243,11 +261,25 @@ OganiAsset::register($this);
                             <div class="row">
                                 <div class="col-lg-12 text-center">
                                     <div class="breadcrumb__text">
-                                        <h2>Organi Shop</h2>
-                                        <div class="breadcrumb__option">
-                                            <a href="<?=url::home()?>">Home</a>
-                                            <span>Shop</span>
-                                        </div>
+                                        <h2><?=$this->title?></h2>
+                                       <style>
+                                          .breadcrumb{
+                                              background-color: rgba(122, 222, 222, 0);
+                                          } 
+                                       </style>
+                                        <?php
+                                       echo Breadcrumbs::widget([
+                                        'itemTemplate' => "\t{link}\n", // template for all links
+                                        'activeItemTemplate' => "\t<span>{link}</span>\t\n",
+                                        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                                        'options'=>[
+                                            'class'=>'breadcrumb__option',
+                                            'style' => 'display: table; margin: 0 auto;'//добавили
+
+                                        ]
+
+                                    ]);
+                                        ?>
                                     </div>
                                 </div>
                             </div>

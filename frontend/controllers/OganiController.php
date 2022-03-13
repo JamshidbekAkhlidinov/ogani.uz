@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\models\Shop;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -44,12 +45,16 @@ class OganiController extends Controller
 
     public function actionShopGrid()
     {
-        return $this->render('shop-grid');
+        $model = Shop::find()->where('price!=price_new')->andWhere('status=1')->orderBy('created_at DESC')->all();
+        $model2 = Shop::find()->where('price=price_new')->andWhere('status=1')->orderBy('created_at DESC')->all();
+        
+        return $this->render('shop-grid',['models'=>$model,'model2'=>$model2]);
     }
 
-    public function actionShopDetails()
+    public function actionShopDetails($id)
     {
-        return $this->render('shop-details');
+        $model = Shop::findOne($id);
+        return $this->render('shop-details',['model'=>$model]);
     }
 
     public function actionShopingCart()

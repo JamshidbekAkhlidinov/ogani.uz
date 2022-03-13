@@ -1,5 +1,7 @@
 <?php
 use yii\helpers\Url;
+$this->title = "Blogs-details";
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 
     <!-- Blog Details Hero Begin -->

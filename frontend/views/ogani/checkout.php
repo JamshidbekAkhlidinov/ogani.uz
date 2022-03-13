@@ -1,4 +1,9 @@
+<?php
+$this->title = "Checkout";
+$this->params['breadcrumbs'][] = $this->title;
 
+?>
+    
     <!-- Checkout Section Begin -->
     <section class="checkout spad">
         <div class="container">

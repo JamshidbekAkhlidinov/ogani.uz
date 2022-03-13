@@ -1,5 +1,7 @@
 <?php
 use yii\helpers\Url;
+$this->title = "Shop- Card ";
+$this->params['breadcrumbs'][] = $this->title;
 ?>    
     
     <!-- Shoping Cart Section Begin -->

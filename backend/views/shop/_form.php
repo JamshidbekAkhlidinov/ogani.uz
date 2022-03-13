@@ -37,7 +37,7 @@ $data = ArrayHelper::map($category,'id','category_name');
     <?= $form->field($model, 'sale')->textInput() ?>
     <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'price_new')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?= $form->field($model, 'status')->dropdownList(['1'=>"Aktiv",'0'=>'Aktiv emas']) ?>
 
     <?= $form->field($model, 'img[]')->widget(FileInput::classname(), [
         'name' => 'attachment_49[]',

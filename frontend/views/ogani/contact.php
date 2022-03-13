@@ -1,4 +1,8 @@
-    <!-- Contact Section Begin -->
+<?php
+$this->title = "Contact";
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<!-- Contact Section Begin -->
     <section class="contact spad">
         <div class="container">
             <div class="row">

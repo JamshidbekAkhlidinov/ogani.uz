@@ -108,16 +108,34 @@ AdminAsset::register($this);
                 </form>
 
 
+
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li class="active">
+                    <li class="<?php if(in_array(Yii::$app->controller->getRoute(),[
+                            'dashboard/index',
+                        ])){echo 'active';}?>">
                         <a href="<?=url::home()?>">
                             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="<?php if(in_array(Yii::$app->controller->getRoute(),[
+                            'shop-category/index',
+                            'shop-category/create',
+                            'shop-category/update',
+                            'shop-category/view',
+                        ])){echo 'active';}?>">
                         <a href="<?=url::to(['shop-category/index'])?>">
                             <i class="fa fa-dashboard"></i> <span>Shop Category</span>
+                        </a>
+                    </li>
+                    <li class="<?php if(in_array(Yii::$app->controller->getRoute(),[
+                            'shop/index',
+                            'shop/create',
+                            'shop/update',
+                            'shop/view',
+                        ])){echo 'active';}?>">
+                        <a href="<?=url::to(['shop/index'])?>">
+                            <i class="fa fa-dashboard"></i> <span>Shop</span>
                         </a>
                     </li>
 
