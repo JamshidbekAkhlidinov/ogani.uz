@@ -5,6 +5,7 @@
 use frontend\assets\OganiAsset;
 use yii\bootstrap4\Breadcrumbs;
 use yii\bootstrap4\Html;
+use yii\bootstrap4\Modal;
 use yii\helpers\Url;
 OganiAsset::register($this);
 ?>
@@ -31,6 +32,22 @@ OganiAsset::register($this);
 
 <body>
     <?php $this->beginBody() ?>
+
+
+    <?php
+    
+    Modal::begin([
+        'title' => '<h2>Siz tanlagan maxsulotlar</h2>',
+        'id'=>'MyModal',
+        'size'=>'modal-lg',
+        ]);
+    
+    echo '<div class="modalcontent"></div>';
+    
+    Modal::end();
+    
+    ?>
+
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -45,7 +62,7 @@ OganiAsset::register($this);
         <div class="humberger__menu__cart">
             <ul>
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                <li><a href="" class="show"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
             <div class="header__cart__price">item: <span>$150.00</span></div>
         </div>
@@ -66,7 +83,7 @@ OganiAsset::register($this);
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="<?=url::home()?>">Home</a></li>
-                <li><a href=shop-grid">Shop</a></li>
+                <li><a href=shop-grid">Shop</></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
                         <li><a href=shop-details">Shop Details</a></li>
@@ -171,7 +188,7 @@ OganiAsset::register($this);
                     <div class="header__cart">
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="#" class="show"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
                         <div class="header__cart__price">item: <span>$150.00</span></div>
                     </div>

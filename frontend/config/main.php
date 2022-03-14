@@ -47,7 +47,8 @@ return [
             'showScriptName' => false,
             'enablePrettyUrl' => true,
             'rules' => [
-
+                '<action:(login|logout)>' => 'site/<action>',
+                '<language:([a-zA-Z-]{2,5})?>' => 'ogani/index',
                 '<language:([a-zA-Z-]{2,5})?>/<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ],
             'excludedActions' => [

@@ -19,6 +19,7 @@ class OganiAsset extends AssetBundle
         'css/slicknav.min.css',
         'css/style.css',
         'css/flag-icons.css',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css',
     ];
     public $js = [
         'js/jquery-3.3.1.min.js',
@@ -29,6 +30,7 @@ class OganiAsset extends AssetBundle
         'js/mixitup.min.js',
         'js/owl.carousel.min.js',
         'js/main.js',
+        'js/jk.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
