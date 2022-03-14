@@ -55,6 +55,15 @@
             'reference' => '38c8d3131a82567bfef18da09f7f4db68c84f8a3',
             'dev_requirement' => false,
         ),
+        'bower-asset/toastr' => array(
+            'pretty_version' => '2.1.2',
+            'version' => '2.1.2.0',
+            'type' => 'bower-asset',
+            'install_path' => __DIR__ . '/../bower-asset/toastr',
+            'aliases' => array(),
+            'reference' => 'e648a870a60103bbc3986c1fe2b2de86ea4a9569',
+            'dev_requirement' => false,
+        ),
         'bower-asset/yii2-pjax' => array(
             'pretty_version' => '2.0.7.1',
             'version' => '2.0.7.1',
@@ -246,6 +255,17 @@
                 0 => '2.2.x-dev',
             ),
             'reference' => '25fbe4b93b8acbac325fa4f594a983be1e84a780',
+            'dev_requirement' => false,
+        ),
+        'lavrentiev/yii2-toastr' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'yii2-extension',
+            'install_path' => __DIR__ . '/../lavrentiev/yii2-toastr',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'reference' => '7acb5ac0838752449529f664b2c32a77a824a21d',
             'dev_requirement' => false,
         ),
         'myclabs/deep-copy' => array(

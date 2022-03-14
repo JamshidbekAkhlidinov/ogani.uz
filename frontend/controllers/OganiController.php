@@ -2,8 +2,11 @@
 
 namespace frontend\controllers;
 
+use common\models\Orders;
+use common\models\People;
 use common\models\Shop;
 use common\models\ShopCategory;
+use Yii;
 use yii\data\Pagination;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -40,6 +43,8 @@ class OganiController extends Controller
         ];
     }
 
+   
+
     public function actionIndex()
     {
         return $this->render('index');
@@ -64,7 +69,7 @@ class OganiController extends Controller
         if($model!==null){
             return $this->render('shop-details',['model'=>$model]);
         }else{
-            throw new \yii\web\HttpException(404, 'The requested Item could not be found.');
+            throw new \yii\web\HttpException(404, 'Bunday maxsulot yo`q.');
        }
 }
 
@@ -82,12 +87,45 @@ class OganiController extends Controller
 
     public function actionShopingCart()
     {
-        return $this->render('shoping-cart');
+        if(isset($_SESSION['card'])){
+            return $this->render('shoping-cart');
+        }else{
+            Yii::$app->session->setFlash('warning',"Siz hali hech nima tanlamadingiz");
+            return $this->redirect(['ogani/shop-grid']);
+        }
     }
 
     public function actionCheckout()
     {
-        return $this->render('checkout');
+        $session = Yii::$app->session;
+        $session->open();
+
+        $model = new People();
+        if($model->load(Yii::$app->request->post())){
+            $model->save();
+            foreach ($_SESSION['card'] as $id => $value) {
+                $orders = new Orders();
+                $orders->order_id = $model->id;
+                $orders->product_id = $id;
+                $orders->product_count = $value['soni'];
+                $orders->product_name = $value['name'];
+                $orders->product_price = $value['price_new'];
+                $orders->product_sum = $value['price_new']*$value['soni'];
+                $orders->save();
+            }
+            Yii::$app->session->setFlash('success','Buyurtmanigiz qabul qilindi. Tez orada siz bilan bog`;anamiz');
+            $session->remove('card');
+            $session->remove('card.soni');
+            $session->remove('card.sum');
+
+            return $this->redirect(['ogani/index']);
+        }
+        if(isset($session['card'])){
+            return $this->render('checkout',['model'=>$model]);
+        }else{
+            Yii::$app->session->setFlash('warning',"Siz hali hech nima tanlamadingiz");
+            return $this->redirect(['ogani/shop-grid']);
+        }
     }
 
     

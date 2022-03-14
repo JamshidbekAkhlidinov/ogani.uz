@@ -1,3 +1,11 @@
+<?php
+
+use common\models\ProductsImgs;
+use yii\bootstrap4\Html;
+use yii\helpers\Url;
+
+if(isset($_SESSION['card'])){
+?>
 <table class="table table-bordered table-striped">
     <tr>
         <th>#</th>
@@ -9,16 +17,15 @@
     </tr>
     <?php
 
-use yii\helpers\Url;
 
-if(isset($_SESSION['card'])){
  $n=0;   foreach($_SESSION['card'] as $id=>$product):
  $n++;
+ $img = ProductsImgs::findOne(['products_id'=>$id]);
     ?>
 
 <tr>
             <td><?=$n?></td>
-            <td><?=$product['img']?></td>
+            <td><?=Html::img(url::to('/backend/web/imgs/products/'.$img->name),['width'=>'70px'])?></td>
             <td><?=$product['name']?></td>
             <td><?=$product['soni']?></td>
             <td><?=$product['price_new']?></td>
@@ -39,11 +46,15 @@ if(isset($_SESSION['card'])){
         <td><?=$_SESSION['card.sum']?></td>
     </tr>
 
-<?php
-}
-?>
-
-
-
 
 </table>
+
+
+<?php
+    }else{
+        ?>
+<h2 class="alert alert-danger">Savat xali ham bo'sh</h2>
+        <?php
+    }
+?>
+

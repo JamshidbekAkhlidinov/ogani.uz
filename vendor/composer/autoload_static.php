@@ -44,6 +44,10 @@ class ComposerStaticInit71422491972caa5a2ae60f53ea8b58b0
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
+        'l' => 
+        array (
+            'lavrentiev\\widgets\\toastr\\' => 26,
+        ),
         'k' => 
         array (
             'kartik\\select2\\' => 15,
@@ -160,6 +164,10 @@ class ComposerStaticInit71422491972caa5a2ae60f53ea8b58b0
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+        ),
+        'lavrentiev\\widgets\\toastr\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/lavrentiev/yii2-toastr/src',
         ),
         'kartik\\select2\\' => 
         array (

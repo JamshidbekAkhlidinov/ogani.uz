@@ -43,7 +43,7 @@ use yeesoft\multilingual\widgets\LanguageSwitcher;
         'id'=>'MyModal',
         'size'=>'modal-lg',
         'footer'=>' <button type="submit" class="btn btn-danger clear" onclick="tozalash()">Hammasini o`chirish</button>
-        <a href="'.url::to(['ogani/checkout']).'" class="btn btn-primary">Buyurtma qilish</a>',
+        <a href="'.url::to(['ogani/shoping-cart']).'" class="btn btn-primary">Buyurtma qilish</a>',
         ]);
     
     echo '<div class="modalcontent"></div>';
@@ -97,9 +97,6 @@ use yeesoft\multilingual\widgets\LanguageSwitcher;
                 <li><a href=shop-grid">Shop</></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href=shop-details">Shop Details</a></li>
-                        <li><a href=shoping-cart">Shoping Cart</a></li>
-                        <li><a href=checkout">Check Out</a></li>
                         <li><a href=blog-details">Blog Details</a></li>
                     </ul>
                 </li>
@@ -183,9 +180,6 @@ use yeesoft\multilingual\widgets\LanguageSwitcher;
                             <li class="<?=(Yii::$app->controller->getRoute()=='ogani/shop-grid')?'active':''?>"><a href="<?=url::to(['ogani/shop-grid'])?>">Shop</a></li>
                             <li class="<?=(Yii::$app->controller->getRoute()=='ogani/pages')?'active':''?>"><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="<?=url::to(['ogani/shop-details'])?>">Shop Details</a></li>
-                                    <li><a href="<?=url::to(['ogani/shoping-cart'])?>">Shoping Cart</a></li>
-                                    <li><a href="<?=url::to(['ogani/checkout'])?>">Check Out</a></li>
                                     <li><a href="<?=url::to(['blog/blog-details'])?>">Blog Details</a></li>
                                 </ul>
                             </li>
@@ -395,9 +389,27 @@ use yeesoft\multilingual\widgets\LanguageSwitcher;
             </div>
         </div>
     </footer>
-    <!-- Footer Section End -->
+ 
+    <?= \lavrentiev\widgets\toastr\NotificationFlash::widget([
+    'options' => [
+        "closeButton" => true,
+        "debug" => false,
+        "newestOnTop" => false,
+        "progressBar" => false,
+        "positionClass" => \lavrentiev\widgets\toastr\NotificationFlash::POSITION_TOP_RIGHT,
+        "preventDuplicates" => false,
+        "onclick" => null,
+        "showDuration" => "300",
+        "hideDuration" => "1000",
+        "timeOut" => "5000",
+        "extendedTimeOut" => "1000",
+        "showEasing" => "swing",
+        "hideEasing" => "linear",
+        "showMethod" => "fadeIn",
+        "hideMethod" => "fadeOut"
+    ]
+]) ?>
 
-    <!-- Js Plugins -->
 
     <?php $this->endBody() ?>
 </body>
