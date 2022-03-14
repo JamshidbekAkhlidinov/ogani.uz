@@ -18,6 +18,7 @@ class OganiAsset extends AssetBundle
         'css/owl.carousel.min.css',
         'css/slicknav.min.css',
         'css/style.css',
+        'css/flag-icons.css',
     ];
     public $js = [
         'js/jquery-3.3.1.min.js',

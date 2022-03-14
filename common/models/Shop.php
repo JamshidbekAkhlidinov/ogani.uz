@@ -56,11 +56,12 @@ class Shop extends \yii\db\ActiveRecord
         ];
     }
 
-   public static function find()
+
+    public static function find()
     {
         return new MultilingualQuery(get_called_class());
     }
-
+    
     public function attributeLabels()
     {
         return [

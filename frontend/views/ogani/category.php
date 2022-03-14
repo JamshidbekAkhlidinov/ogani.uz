@@ -3,7 +3,7 @@
 use yii\bootstrap4\LinkPager;
 use yii\helpers\Url;
 use yii\widgets\Pjax;
-$this->title = "Shop- grid";
+$this->title = "Shop-grid";
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
@@ -178,11 +178,14 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="row">
                             <div class="col-lg-4 col-md-5">
                                 <div class="filter__sort">
-                                    <span>Sort By</span>
+                                    <span>Tartiblash</span>
+
                                     <select>
-                                        <option value="0">Default</option>
-                                        <option value="0">Default</option>
+                                        <option value="name">Nomi</option>
+                                        <option value="id">Id</option>
+                                        <option value="created_at">Yaratilgan vaqti</option>
                                     </select>
+
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4">
@@ -217,7 +220,9 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
                         </div>
                         <?php endforeach;}else{?>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
                         <h2 class="alert alert-danger">BU bolim bo'sh</h2>
+                            </div>
                         <?php }?>
                     </div>
     

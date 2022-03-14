@@ -43,9 +43,23 @@ return [
         ],
         'urlManager' => [
             'baseUrl'=>'/',
-            'enablePrettyUrl' => true,
+            'class' => 'yeesoft\multilingual\web\MultilingualUrlManager',
             'showScriptName' => false,
+            'enablePrettyUrl' => true,
             'rules' => [
+
+                '<language:([a-zA-Z-]{2,5})?>/<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+            ],
+            'excludedActions' => [
+                'site/login',
+                'site/logout',
+            ],
+            'languages' => [
+                'ru' => 'Ruscha',
+                'uz' => 'Uzbek',
+            ],
+            'languageRedirects' => [
+                // 'en-US' => 'en',
             ],
         ],
         'assetManager' => [
