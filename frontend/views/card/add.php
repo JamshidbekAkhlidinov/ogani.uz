@@ -22,7 +22,7 @@ if(isset($_SESSION['card'])){
             <td><?=$product['name']?></td>
             <td><?=$product['soni']?></td>
             <td><?=$product['price_new']?></td>
-            <td><a href="#" class="ochirish text-success" onclick="del(<?=$id?>)">Ochirish</a></td>
+            <td><a href="#" class="ochirish text-success" onclick="del(<?=$id?>)"><i class="fa fa-trash"></i></a></td>
             
         </tr>
 
@@ -39,11 +39,7 @@ if(isset($_SESSION['card'])){
         <td><?=$_SESSION['card.sum']?></td>
     </tr>
 
-    <th>
-        <a href="<?=Url::to(['/card/clear'])?>" class="btn btn-success clear" onclick="tozalash()">Tozalash</a>
-    </th>
-
-    <?php
+<?php
 }
 ?>
 

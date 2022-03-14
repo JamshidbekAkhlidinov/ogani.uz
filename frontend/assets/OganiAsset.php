@@ -19,7 +19,7 @@ class OganiAsset extends AssetBundle
         'css/slicknav.min.css',
         'css/style.css',
         'css/flag-icons.css',
-        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css',
+        // 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css',
     ];
     public $js = [
         'js/jquery-3.3.1.min.js',

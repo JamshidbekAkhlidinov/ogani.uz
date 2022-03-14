@@ -8,6 +8,8 @@ use yii\bootstrap4\Html;
 use yii\bootstrap4\Modal;
 use yii\helpers\Url;
 OganiAsset::register($this);
+use yeesoft\multilingual\widgets\LanguageSwitcher;
+
 ?>
 <?php $this->beginPage() ?>
 
@@ -40,6 +42,8 @@ OganiAsset::register($this);
         'title' => '<h2>Siz tanlagan maxsulotlar</h2>',
         'id'=>'MyModal',
         'size'=>'modal-lg',
+        'footer'=>' <button type="submit" class="btn btn-danger clear" onclick="tozalash()">Hammasini o`chirish</button>
+        <a href="'.url::to(['ogani/checkout']).'" class="btn btn-primary">Buyurtma qilish</a>',
         ]);
     
     echo '<div class="modalcontent"></div>';
@@ -62,20 +66,27 @@ OganiAsset::register($this);
         <div class="humberger__menu__cart">
             <ul>
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="" class="show"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                <li><a href="" class="show"><i class="fa fa-shopping-bag"></i> <span><?=isset($_SESSION['card.soni'])?$_SESSION['card.soni']:"0"?></span></a></li>
             </ul>
             <div class="header__cart__price">item: <span>$150.00</span></div>
         </div>
         <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
-                <img src="<?=url::to('@web/img//language.png')?>" alt="">
-                <div>English</div>
-                <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
-                </ul>
-            </div>
+        <div class="header__top__right__language">
+                                <div><?=(Yii::$app->language=='uz')?"<span class='fi fi-uz'></span> Uzbek":"<span class='fi fi-ru'></span> Ruscha"?></div>
+                                <span class="arrow_carrot-down"></span>
+                                <?php
+
+                                echo LanguageSwitcher::widget([
+                                    'languages' => [
+                                        'ru' => 'Ruscha',
+                                        'uz' => 'Uzbek',
+                                    ],
+                                    'languageRedirects' => [
+                                        // 'uz' => 'Uzbek',
+                                    ]
+                                ]);
+                                ?>
+                            </div>
             <div class="header__top__right__auth">
                 <a href="#"><i class="fa fa-user"></i> Login</a>
             </div>
@@ -138,7 +149,6 @@ OganiAsset::register($this);
                                 <span class="arrow_carrot-down"></span>
                                 <?php
 
-                                use yeesoft\multilingual\widgets\LanguageSwitcher;
 
                                 echo LanguageSwitcher::widget([
                                     'languages' => [
@@ -188,7 +198,8 @@ OganiAsset::register($this);
                     <div class="header__cart">
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#" class="show"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="" class="show"><i class="fa fa-shopping-bag"></i> <span><?=isset($_SESSION['card.soni'])?$_SESSION['card.soni']:"0"?></span></a></li>
+
                         </ul>
                         <div class="header__cart__price">item: <span>$150.00</span></div>
                     </div>

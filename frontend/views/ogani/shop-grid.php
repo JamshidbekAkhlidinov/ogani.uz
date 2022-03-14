@@ -187,7 +187,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <div class="product__discount__percent">-<?=$model->sale?>%</div>
                                             <ul class="product__item__pic__hover">
                                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                                                 <li><a href="#" class="addcard" data-id="<?=$model->id?>"><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
@@ -234,7 +233,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <div class="product__item__pic set-bg" data-setbg="<?=url::to('/backend/web/imgs/products/'.$model->imgs[0]->name)?>">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                                         <li><a href="#" class="addcard" data-id="<?=$model->id?>"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>

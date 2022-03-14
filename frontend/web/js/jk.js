@@ -19,8 +19,7 @@ function del(id){
 }
 
 
-function tozalash(e){
-    e.preventDefault();
+function tozalash(){
     $.ajax({
         type: 'get',
         url: '/card/clear',
@@ -32,10 +31,6 @@ function tozalash(e){
         },
     });  
 }
-
-$(".clear").click(function(e){
-    e.preventDefault();
-  });
 
 
 $(".show").click(function(e){
@@ -69,7 +64,22 @@ $(".addcard").click(function(e){
             console.log(data);
         },
     });
-
-    
   });
 
+  $(".addcardgroup").click(function(e){
+    e.preventDefault();
+    var id = $(this).data('id');
+    var soni = $('#soni').val();
+    $.ajax({
+        data: {id: id,soni: soni},
+        type: 'get',
+        url: '/card/add',
+        success:function(data){
+            // console.log(data);
+            show(data);
+        },
+        error: function(data){
+            console.log(data);
+        },
+    });
+  });
