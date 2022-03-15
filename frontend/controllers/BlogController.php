@@ -2,9 +2,12 @@
 
 namespace frontend\controllers;
 
+use common\models\Blog;
+use yii\data\Pagination;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\web\HttpException;
 
 class BlogController extends Controller
 {
@@ -39,12 +42,24 @@ class BlogController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $blogs = Blog::find()->orderBy('created_at DESC');
+        $page = new Pagination([
+            'totalCount'=>$blogs->count(),
+            'defaultPageSize'=>6,
+        ]);
+        $model = $blogs->limit($page->limit)->offset($page->offset)->all();
+
+        return $this->render('index',['model'=>$model,'page'=>$page]);
     }
 
-    public function actionBlogDetails()
+    public function actionBlogDetails($id)
     {
-        return $this->render('blog-details');
+        $model = Blog::findOne($id);
+        if($model!==null){
+            return $this->render('blog-details',['model'=>$model]);
+        }else{
+            throw new HttpException(404,'Malumotlar topilmadi');
+        }
     }
 
 

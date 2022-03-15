@@ -39,7 +39,8 @@ class Blog extends \yii\db\ActiveRecord
     }
 
 
-    
+    const CREATED = 'created';
+    const UPDATED = 'updated';
 
 
     public function rules()
@@ -48,15 +49,17 @@ class Blog extends \yii\db\ActiveRecord
             [['category_id', 'status', 'created_at', 'updated_at', 'created_by', 'updated_by'], 'integer'],
             [['img','title'], 'string', 'max' => 255],
             ['content','string'],
+            [['img','title','content','category_id', 'status'], 'required','on'=>self::CREATED],
+            [['title','content','category_id', 'status'], 'required','on'=>self::UPDATED],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => BlogCategory::className(), 'targetAttribute' => ['category_id' => 'id']],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
             [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['updated_by' => 'id']],
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
+  
+
+
     public function attributeLabels()
     {
         return [

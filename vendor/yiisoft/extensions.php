@@ -102,4 +102,13 @@ return array (
       '@lavrentiev/widgets/toastr' => $vendorDir . '/lavrentiev/yii2-toastr/src',
     ),
   ),
+  'kartik-v/yii2-widget-rating' => 
+  array (
+    'name' => 'kartik-v/yii2-widget-rating',
+    'version' => 'dev-master',
+    'alias' => 
+    array (
+      '@kartik/rating' => $vendorDir . '/kartik-v/yii2-widget-rating/src',
+    ),
+  ),
 );

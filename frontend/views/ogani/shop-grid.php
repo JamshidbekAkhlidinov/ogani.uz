@@ -217,7 +217,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <div class="filter__found">
-                                    <h6><span><?=count($models)?></span> Products found</h6>
+                                    <h6><span><?=count($model2)?></span> Products found</h6>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-3">

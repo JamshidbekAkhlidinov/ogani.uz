@@ -226,6 +226,15 @@
             'reference' => '02e2e6bccad31373bb2224fccdb8e9a3166124b9',
             'dev_requirement' => false,
         ),
+        'kartik-v/bootstrap-star-rating' => array(
+            'pretty_version' => 'v4.1.2',
+            'version' => '4.1.2.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../kartik-v/bootstrap-star-rating',
+            'aliases' => array(),
+            'reference' => 'c301efed4c82e9d5f11a0845ae428ba60931b44e',
+            'dev_requirement' => false,
+        ),
         'kartik-v/yii2-krajee-base' => array(
             'pretty_version' => 'v3.0.4',
             'version' => '3.0.4.0',
@@ -244,6 +253,17 @@
                 0 => '1.1.x-dev',
             ),
             'reference' => 'd3caa4911ecd8125a5f87865807fa1de7f6cdba7',
+            'dev_requirement' => false,
+        ),
+        'kartik-v/yii2-widget-rating' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'yii2-extension',
+            'install_path' => __DIR__ . '/../kartik-v/yii2-widget-rating',
+            'aliases' => array(
+                0 => '1.0.x-dev',
+            ),
+            'reference' => 'd3d7249490044f80e65f8f3938191f39a76586b2',
             'dev_requirement' => false,
         ),
         'kartik-v/yii2-widget-select2' => array(

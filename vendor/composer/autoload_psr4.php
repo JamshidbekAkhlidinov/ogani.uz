@@ -18,6 +18,7 @@ return array(
     'phpDocumentor\\Reflection\\' => array($vendorDir . '/phpdocumentor/reflection-common/src', $vendorDir . '/phpdocumentor/reflection-docblock/src', $vendorDir . '/phpdocumentor/type-resolver/src'),
     'lavrentiev\\widgets\\toastr\\' => array($vendorDir . '/lavrentiev/yii2-toastr/src'),
     'kartik\\select2\\' => array($vendorDir . '/kartik-v/yii2-widget-select2/src'),
+    'kartik\\rating\\' => array($vendorDir . '/kartik-v/yii2-widget-rating/src'),
     'kartik\\plugins\\fileinput\\' => array($vendorDir . '/kartik-v/bootstrap-fileinput'),
     'kartik\\file\\' => array($vendorDir . '/kartik-v/yii2-widget-fileinput/src'),
     'kartik\\base\\' => array($vendorDir . '/kartik-v/yii2-krajee-base/src'),

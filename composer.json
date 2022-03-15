@@ -21,7 +21,8 @@
         "yeesoft/yii2-multilingual": "~1.0.0",
         "kartik-v/yii2-widget-select2": "dev-master",
         "kartik-v/yii2-widget-fileinput": "dev-master",
-        "lavrentiev/yii2-toastr": "dev-master"
+        "lavrentiev/yii2-toastr": "dev-master",
+        "kartik-v/yii2-widget-rating": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

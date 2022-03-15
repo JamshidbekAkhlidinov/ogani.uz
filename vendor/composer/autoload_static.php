@@ -51,6 +51,7 @@ class ComposerStaticInit71422491972caa5a2ae60f53ea8b58b0
         'k' => 
         array (
             'kartik\\select2\\' => 15,
+            'kartik\\rating\\' => 14,
             'kartik\\plugins\\fileinput\\' => 25,
             'kartik\\file\\' => 12,
             'kartik\\base\\' => 12,
@@ -172,6 +173,10 @@ class ComposerStaticInit71422491972caa5a2ae60f53ea8b58b0
         'kartik\\select2\\' => 
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-select2/src',
+        ),
+        'kartik\\rating\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-rating/src',
         ),
         'kartik\\plugins\\fileinput\\' => 
         array (

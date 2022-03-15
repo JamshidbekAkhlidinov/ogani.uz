@@ -96,7 +96,7 @@ class BlogController extends Controller
     public function actionCreate()
     {
         $model = new Blog();
-
+        $model->scenario = Blog::CREATED;
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
                 $rasm = UploadedFile::getInstance($model,'img');
@@ -127,7 +127,9 @@ class BlogController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $name =$model->img;
+        $name = $model->img;
+        $model->scenario = Blog::UPDATED;
+
         if ($this->request->isPost && $model->load($this->request->post())) {
                 $rasm = UploadedFile::getInstance($model,'img');
                 if($rasm){
@@ -136,8 +138,8 @@ class BlogController extends Controller
                     }
                     $name = Yii::$app->getSecurity()->generateRandomString().".".$rasm->extension;
                     $rasm->saveAs('imgs/blogs/'.$name);
-                    $model->img = $name;
                 }
+                $model->img = $name;
                 $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }

@@ -219,7 +219,7 @@ use yeesoft\multilingual\widgets\LanguageSwitcher;
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
-    <section>
+    <section class="hero">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
