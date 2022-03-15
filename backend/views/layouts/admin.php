@@ -150,6 +150,29 @@ AdminAsset::register($this);
                         </a>
                     </li>
 
+
+                    <li class="<?php if(in_array(Yii::$app->controller->getRoute(),[
+                            'blog-category/index',
+                            'blog-category/create',
+                            'blog-category/update',
+                            'blog-category/view',
+                        ])){echo 'active';}?>">
+                        <a href="<?=url::to(['blog-category/index'])?>">
+                            <i class="fa fa-dashboard"></i> <span>Blog-category</span>
+                        </a>
+                    </li>
+
+                    <li class="<?php if(in_array(Yii::$app->controller->getRoute(),[
+                            'blog/index',
+                            'blog/create',
+                            'blog/update',
+                            'blog/view',
+                        ])){echo 'active';}?>">
+                        <a href="<?=url::to(['blog/index'])?>">
+                            <i class="fa fa-dashboard"></i> <span>Blog</span>
+                        </a>
+                    </li>
+
                 </ul>
 
 

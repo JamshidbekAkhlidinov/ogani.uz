@@ -2,17 +2,16 @@
 
 namespace backend\controllers;
 
-use common\models\People;
-use backend\models\PeopleSearch;
-use Yii;
+use common\models\BlogCategory;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * PeopleController implements the CRUD actions for People model.
+ * BlogCategoryController implements the CRUD actions for BlogCategory model.
  */
-class PeopleController extends Controller
+class BlogCategoryController extends Controller
 {
     /**
      * @inheritDoc
@@ -33,45 +32,52 @@ class PeopleController extends Controller
     }
 
     /**
-     * Lists all People models.
+     * Lists all BlogCategory models.
      *
      * @return string
      */
     public function actionIndex()
     {
-        $searchModel = new PeopleSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams);
+        $dataProvider = new ActiveDataProvider([
+            'query' => BlogCategory::find(),
+            /*
+            'pagination' => [
+                'pageSize' => 50
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'id' => SORT_DESC,
+                ]
+            ],
+            */
+        ]);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
 
     /**
-     * Displays a single People model.
+     * Displays a single BlogCategory model.
      * @param int $id ID
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
     {
-        $model = $this->findModel($id);
-        $model->status = 1;
-        $model->save();
         return $this->render('view', [
-            'model' => $model,
+            'model' => $this->findModel($id),
         ]);
     }
 
     /**
-     * Creates a new People model.
+     * Creates a new BlogCategory model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
     public function actionCreate()
     {
-        $model = new People();
+        $model = new BlogCategory();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -87,7 +93,7 @@ class PeopleController extends Controller
     }
 
     /**
-     * Updates an existing People model.
+     * Updates an existing BlogCategory model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
      * @return string|\yii\web\Response
@@ -107,7 +113,7 @@ class PeopleController extends Controller
     }
 
     /**
-     * Deletes an existing People model.
+     * Deletes an existing BlogCategory model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
      * @return \yii\web\Response
@@ -121,15 +127,15 @@ class PeopleController extends Controller
     }
 
     /**
-     * Finds the People model based on its primary key value.
+     * Finds the BlogCategory model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id ID
-     * @return People the loaded model
+     * @return BlogCategory the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = People::findOne(['id' => $id])) !== null) {
+        if (($model = BlogCategory::findOne(['id' => $id])) !== null) {
             return $model;
         }
 

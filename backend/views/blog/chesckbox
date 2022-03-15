@@ -1,0 +1,91 @@
+<?php
+
+use common\models\Blog;
+use yii\bootstrap4\ActiveForm;
+use yii\bootstrap4\Html as Bootstrap4Html;
+use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\grid\ActionColumn;
+use yii\grid\CheckboxColumn;
+use yii\grid\GridView;
+use yii\widgets\Pjax;
+/* @var $this yii\web\View */
+/* @var $dataProvider yii\data\ActiveDataProvider */
+
+$this->title = Yii::t('app', 'Blogs');
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="blog-index">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+
+    <p>
+        <?= Html::a(Yii::t('app', 'Create Blog'), ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
+
+    <?php Pjax::begin(); ?>
+
+   <?php ActiveForm::begin(['action'=>Url::to(['blog/delete-all'])])?>        
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'columns' => [
+            ['class' => CheckboxColumn::class],
+
+            // 'id',
+            // 'img',
+            // 'category_id',
+            // 'status',
+            // 'created_at',
+            //'updated_at',
+            //'created_by',
+            //'updated_by',
+            [
+                'attribute'=>'img',
+                'format'=>'html',
+                'value'=>function($data){
+                    return Bootstrap4Html::img(url::to('/backend/web/imgs/blogs/'.$data->img),['width'=>'100px']);
+                }
+            ],
+            [
+                'attribute'=>'category_id',
+                'format'=>'html',
+                'value'=>function($data){
+                    return $data->category->category_name;
+                }
+            ],
+            'title',
+
+            [
+                'class' => ActionColumn::className(),
+                'urlCreator' => function ($action, Blog $model, $key, $index, $column) {
+                    return Url::toRoute([$action, 'id' => $model->id]);
+                 }
+            ],
+        ],
+    ]); ?> 
+
+    <?=Html::submitButton("O'chirish",['data'=>[
+        'confirm'=>"Rostdan ham shu belgilangan contentlarni o'chirmoqchimisz?",
+        'method'=>'post',
+    ],'class'=>'btn btn-danger'])?>
+
+   <?php ActiveForm::end()?>
+    <?php Pjax::end(); ?>
+
+</div>
+
+
+public function actionDeleteAll(){
+         $json = Yii::$app->request->post('selection');
+        if(isset($json)){
+            foreach($json as $id){
+                $model = Blog::findOne($id);
+                if(file_exists('imgs/blogs/'.$model->img) and ($model->img)){
+                    unlink('imgs/blogs/'.$model->img);
+                }
+                $model->delete();
+            }
+        }
+         return $this->redirect(['blog/index']);
+       
+    }
