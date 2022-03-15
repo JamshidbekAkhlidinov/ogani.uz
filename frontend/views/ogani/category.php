@@ -32,12 +32,14 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
                                     <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
                                 </div>
-                                <div class="range-slider">
+                                <form action="<?=url::to(['ogani/category'])?>" class="range-slider">
                                     <div class="price-input">
-                                        <input type="text" id="minamount">
-                                        <input type="text" id="maxamount">
+                                        <input type="text" id="minamount" name="min">
+                                        <input type="text" id="maxamount" name="max">
+                                        <input type="hidden" name="id" value="<?=isset($_GET['id'])?$_GET['id']:'0'?>">
+                                        <input type="submit" value="OK" class="btn btn-success text-white">
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                         <div class="sidebar__item sidebar__item__color--option">
@@ -191,13 +193,13 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <div class="filter__found">
-                                    <h6><span>16</span> Products found</h6>
+                                    <h6><span><?=count($models)?></span> Products found</h6>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-3">
                                 <div class="filter__option">
-                                    <span class="icon_grid-2x2"></span>
-                                    <span class="icon_ul"></span>
+                                    <span>Min: <?=isset($_GET['min'])?$_GET['min']:'$1'?></span>
+                                    <span>Max: <?=isset($_GET['max'])?$_GET['max']:'$1000000'?></span>
                                 </div>
                             </div>
                         </div>

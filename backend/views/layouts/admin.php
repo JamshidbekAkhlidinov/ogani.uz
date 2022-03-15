@@ -139,6 +139,17 @@ AdminAsset::register($this);
                         </a>
                     </li>
 
+                    <li class="<?php if(in_array(Yii::$app->controller->getRoute(),[
+                            'people/index',
+                            'people/create',
+                            'people/update',
+                            'people/view',
+                        ])){echo 'active';}?>">
+                        <a href="<?=url::to(['people/index'])?>">
+                            <i class="fa fa-dashboard"></i> <span>Buyurtmalar</span>
+                        </a>
+                    </li>
+
                 </ul>
 
 

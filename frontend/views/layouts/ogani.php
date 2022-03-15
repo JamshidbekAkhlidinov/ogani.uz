@@ -66,15 +66,18 @@ use yeesoft\multilingual\widgets\LanguageSwitcher;
         <div class="humberger__menu__cart">
             <ul>
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="" class="show"><i class="fa fa-shopping-bag"></i> <span><?=isset($_SESSION['card.soni'])?$_SESSION['card.soni']:"0"?></span></a></li>
+                <li><a href="" class="show"><i class="fa fa-shopping-bag"></i>
+                        <span><?=isset($_SESSION['card.soni'])?$_SESSION['card.soni']:"0"?></span></a></li>
             </ul>
             <div class="header__cart__price">item: <span>$150.00</span></div>
         </div>
         <div class="humberger__menu__widget">
-        <div class="header__top__right__language">
-                                <div><?=(Yii::$app->language=='uz')?"<span class='fi fi-uz'></span> Uzbek":"<span class='fi fi-ru'></span> Ruscha"?></div>
-                                <span class="arrow_carrot-down"></span>
-                                <?php
+            <div class="header__top__right__language">
+                <div>
+                    <?=(Yii::$app->language=='uz')?"<span class='fi fi-uz'></span> Uzbek":"<span class='fi fi-ru'></span> Ruscha"?>
+                </div>
+                <span class="arrow_carrot-down"></span>
+                <?php
 
                                 echo LanguageSwitcher::widget([
                                     'languages' => [
@@ -86,7 +89,7 @@ use yeesoft\multilingual\widgets\LanguageSwitcher;
                                     ]
                                 ]);
                                 ?>
-                            </div>
+            </div>
             <div class="header__top__right__auth">
                 <a href="#"><i class="fa fa-user"></i> Login</a>
             </div>
@@ -94,7 +97,8 @@ use yeesoft\multilingual\widgets\LanguageSwitcher;
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="<?=url::home()?>">Home</a></li>
-                <li><a href=shop-grid">Shop</></li>
+                <li><a href=shop-grid">Shop</>
+                </li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
                         <li><a href=blog-details">Blog Details</a></li>
@@ -142,7 +146,9 @@ use yeesoft\multilingual\widgets\LanguageSwitcher;
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div>
                             <div class="header__top__right__language">
-                                <div><?=(Yii::$app->language=='uz')?"<span class='fi fi-uz'></span> Uzbek":"<span class='fi fi-ru'></span> Ruscha"?></div>
+                                <div>
+                                    <?=(Yii::$app->language=='uz')?"<span class='fi fi-uz'></span> Uzbek":"<span class='fi fi-ru'></span> Ruscha"?>
+                                </div>
                                 <span class="arrow_carrot-down"></span>
                                 <?php
 
@@ -176,15 +182,20 @@ use yeesoft\multilingual\widgets\LanguageSwitcher;
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/index')?'active':''?>"><a href="<?=url::home()?>">Home</a></li>
-                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/shop-grid')?'active':''?>"><a href="<?=url::to(['ogani/shop-grid'])?>">Shop</a></li>
-                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/pages')?'active':''?>"><a href="#">Pages</a>
+                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/index')?'active':''?>"><a
+                                    href="<?=url::home()?>">Home</a></li>
+                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/shop-grid')?'active':''?>"><a
+                                    href="<?=url::to(['ogani/shop-grid'])?>">Shop</a></li>
+                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/pages')?'active':''?>"><a
+                                    href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="<?=url::to(['blog/blog-details'])?>">Blog Details</a></li>
                                 </ul>
                             </li>
-                            <li class="<?=(Yii::$app->controller->getRoute()=='blog/index')?'active':''?>"><a href="<?=url::to(['blog/index'])?>">Blog</a></li>
-                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/contact')?'active':''?>"><a href="<?=url::to(['ogani/contact'])?>">Contact</a></li>
+                            <li class="<?=(Yii::$app->controller->getRoute()=='blog/index')?'active':''?>"><a
+                                    href="<?=url::to(['blog/index'])?>">Blog</a></li>
+                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/contact')?'active':''?>"><a
+                                    href="<?=url::to(['ogani/contact'])?>">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -192,7 +203,8 @@ use yeesoft\multilingual\widgets\LanguageSwitcher;
                     <div class="header__cart">
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="" class="show"><i class="fa fa-shopping-bag"></i> <span><?=isset($_SESSION['card.soni'])?$_SESSION['card.soni']:"0"?></span></a></li>
+                            <li><a href="" class="show"><i class="fa fa-shopping-bag"></i>
+                                    <span><?=isset($_SESSION['card.soni'])?$_SESSION['card.soni']:"0"?></span></a></li>
 
                         </ul>
                         <div class="header__cart__price">item: <span>$150.00</span></div>
@@ -207,7 +219,7 @@ use yeesoft\multilingual\widgets\LanguageSwitcher;
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
-    <section class="hero">
+    <section>
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
@@ -248,7 +260,9 @@ use yeesoft\multilingual\widgets\LanguageSwitcher;
                                 <div class="hero__search__categories">
                                     All Categories
                                     <span class="arrow_carrot-down"></span>
+                                    
                                 </div>
+                               
                                 <input type="text" placeholder="What do yo u need?">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
@@ -278,19 +292,22 @@ use yeesoft\multilingual\widgets\LanguageSwitcher;
                     <?php }?>
                 </div>
             </div>
-           <?php if(Yii::$app->controller->getRoute()!=='ogani/index' and Yii::$app->controller->getRoute()!=='blog/blog-details' ): ?>
-            <section class="breadcrumb-section set-bg" data-setbg="<?=url::to('@web/img/breadcrumb.jpg')?>">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12 text-center">
-                                    <div class="breadcrumb__text">
-                                        <h2><?=$this->title?></h2>
-                                       <style>
-                                          .breadcrumb{
-                                              background-color: rgba(122, 222, 222, 0);
-                                          } 
-                                       </style>
-                                        <?php
+        </div>
+    </section>
+
+    <?php if(Yii::$app->controller->getRoute()!=='ogani/index' and Yii::$app->controller->getRoute()!=='blog/blog-details' ): ?>
+    <section class="breadcrumb-section set-bg" data-setbg="<?=url::to('@web/img/breadcrumb.jpg')?>">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2><?=$this->title?></h2>
+                        <style>
+                            .breadcrumb {
+                                background-color: rgba(122, 222, 222, 0);
+                            }
+                        </style>
+                        <?php
                                        echo Breadcrumbs::widget([
                                         'itemTemplate' => "\t{link}\n", // template for all links
                                         'activeItemTemplate' => "\t<span>{link}</span>\t\n",
@@ -303,15 +320,12 @@ use yeesoft\multilingual\widgets\LanguageSwitcher;
 
                                     ]);
                                         ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-            <?php endif?>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-    <!-- Hero Section End -->
+    <?php endif?>
 
     <?=$content?>
 
@@ -383,13 +397,14 @@ use yeesoft\multilingual\widgets\LanguageSwitcher;
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             </p>
                         </div>
-                        <div class="footer__copyright__payment"><img src="<?=url::to('@web/img//payment-item.png')?>" alt=""></div>
+                        <div class="footer__copyright__payment"><img src="<?=url::to('@web/img//payment-item.png')?>"
+                                alt=""></div>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
- 
+
     <?= \lavrentiev\widgets\toastr\NotificationFlash::widget([
     'options' => [
         "closeButton" => true,

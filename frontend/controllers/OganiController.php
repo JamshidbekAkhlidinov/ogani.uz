@@ -60,6 +60,7 @@ class OganiController extends Controller
             'totalCount'=>$model2->count(),
         ]);
         $products = $model2->offset($page->offset)->limit($page->limit)->all();
+        
         return $this->render('shop-grid',['models'=>$model,'model2'=>$products,'page'=>$page]);
     }
 
@@ -74,8 +75,15 @@ class OganiController extends Controller
 }
 
 
-    public function actionCategory($id){
-        $category = Shop::find()->where('category_id='.$id);
+    public function actionCategory($id=0,$min = 1,$max=1000000){
+        $min = str_replace(["%24",'$'],['',''],$min);
+        $max = str_replace(["%24",'$'],['',''],$max);
+        if($id==0){
+        $category = Shop::find()->Where("price_new>=$min")->andWhere("price_new<=$max");
+        }else{
+        $category = Shop::find()->where('category_id='.$id)->andWhere("price_new>=$min")->andWhere("price_new<=$max");
+        }
+        
         $page = new Pagination([
             'defaultPageSize'=>12,
             'totalCount'=>$category->count(),
