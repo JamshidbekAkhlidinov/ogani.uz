@@ -1,9 +1,20 @@
 <?php
 
+use common\models\Coments;
 use yii\bootstrap4\Modal;
 use yii\helpers\Url;
 $this->title = "Blogs-details";
 $this->params['breadcrumbs'][] = $this->title;
+$coments = Coments::find()->where(['category_id'=>2])->andWhere(['owner_id'=>$model->id]);
+Modal::begin([
+    'title' => '<h2>Komentariya qoldirishingiz mumkun</h2>',
+    'id'=>'modalcoments',
+    'size'=>'modal-lg',
+]);
+
+echo '<div class="comentsbody"></div>';
+
+Modal::end();
 
 ?>
 
@@ -17,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <ul>
                             <li>By <?=$model->createdBy->username?></li>
                             <li><?=date('M d, Y',$model->created_at)?></li>
-                            <li>8 Comments</li>
+                            <li><?=count($coments->all())?> Comments</li>
                         </ul>
                     </div>
                 </div>
@@ -98,22 +109,12 @@ $this->params['breadcrumbs'][] = $this->title;
                         <img src="<?=url::to('/backend/web/imgs/blogs/'.$model->img)?>" width="100%" alt="">
                         <h3><?=$model->title?></h3>
                         <p><?=str_replace("\n","<br>",$model->content)?></p>
+                        <h6 class="text-right" style="cursor: pointer;" id="comentsbutton"  data-id="<?=$model->id?>"><i class="fa fa-clipboard" aria-hidden="true"></i> Komentariya yozish</h6>
                     </div>
 
                     <div class="blog__details__content">
                         <div class="row">
-                            <div class="col-lg-6">
-                                <div class="blog__details__author">
-                                    <div class="blog__details__author__pic">
-                                        <img src="<?=url::to('/backend/web/imgs/user/'.$model->createdBy->img)?>" alt="">
-                                    </div>
-                                    <div class="blog__details__author__text">
-                                        <h6><?=$model->createdBy->name?></h6>
-                                        <span><?=$model->createdBy->username?></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <div class="blog__details__widget">
                                     <ul>
                                         <li><span>Categories: </span><?=$model->category->category_name?></li>
@@ -128,6 +129,43 @@ $this->params['breadcrumbs'][] = $this->title;
                                     </div>
                                 </div>
                             </div>
+
+                            <h3 class="pt-4">Kometariyalar:</h3>
+                            <?php 
+                            
+                            if(count($coments->andwhere(['status'=>1])->all())>0){
+                            foreach($coments->andwhere(['status'=>1])->limit(5)->all() as $coment):?>
+                            <div class="col-lg-12">
+                                <div class="blog__details__author">
+                                    <div class="blog__details__author__text">
+                                        <h6><?=$coment->name?></h6>
+                                        <span class="p-4"><?=$coment->text?></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php endforeach;
+                            }else{
+                                echo "<h3 class='pt-4'>Komentariyalar mavjud emas</h3>";
+                            }
+                            ?>
+
+                            <!-- <div class="col-lg-12 pt-2">
+                                <div class="blog__details__author">
+                                    <div class="blog__details__author__pic">
+                                        <img src="<?=url::to('/backend/web/imgs/user/'.$model->createdBy->img)?>" alt="">
+                                    </div>
+                                    <div class="blog__details__author__text">
+                                        <h6><?=$model->createdBy->name?></h6>
+                                        <span class="p-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta accusamus sapiente explicabo illum recusandae voluptate officia provident? Necessitatibus architecto suscipit delectus repellat iusto? Dolorum eligendi cumque quidem nulla officia velit!</span>
+                                    </div>
+                                </div>
+                            </div> -->
+
+
+
+                         
+
+
                         </div>
                     </div>
                 </div>

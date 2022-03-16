@@ -99,11 +99,6 @@ use yeesoft\multilingual\widgets\LanguageSwitcher;
                 <li class="active"><a href="<?=url::home()?>">Home</a></li>
                 <li><a href=shop-grid">Shop</>
                 </li>
-                <li><a href="#">Pages</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href=blog-details">Blog Details</a></li>
-                    </ul>
-                </li>
                 <li><a href=blog">Blog</a></li>
                 <li><a href=contact">Contact</a></li>
             </ul>
@@ -186,12 +181,6 @@ use yeesoft\multilingual\widgets\LanguageSwitcher;
                                     href="<?=url::home()?>">Home</a></li>
                             <li class="<?=(Yii::$app->controller->getRoute()=='ogani/shop-grid')?'active':''?>"><a
                                     href="<?=url::to(['ogani/shop-grid'])?>">Shop</a></li>
-                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/pages')?'active':''?>"><a
-                                    href="#">Pages</a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="<?=url::to(['blog/blog-details'])?>">Blog Details</a></li>
-                                </ul>
-                            </li>
                             <li class="<?=(Yii::$app->controller->getRoute()=='blog/index')?'active':''?>"><a
                                     href="<?=url::to(['blog/index'])?>">Blog</a></li>
                             <li class="<?=(Yii::$app->controller->getRoute()=='ogani/contact')?'active':''?>"><a

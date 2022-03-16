@@ -86,4 +86,24 @@ $(".addcard").click(function(e){
    
   });
 
+
+  $("#comentsbutton").click(function(){
+      let id = $(this).data('id');
+        $.ajax({
+            url: "/blog/coments",
+            data: {id:id},
+            type: "GET",
+            success: function(data){
+                $(".comentsbody").html(data);
+                $("#modalcoments").modal();
+            },
+            error: function(){
+                alert("Xatolik yuz berdi");
+            }
+        });
+  });
+
+
+
+
 });

@@ -2,7 +2,7 @@
 
 
 use backend\assets\AdminAsset;
-use yii\bootstrap4\Breadcrumbs;
+use yii\widgets\Breadcrumbs;
 use yii\bootstrap4\Html;
 use yii\helpers\Url;
 
@@ -173,6 +173,19 @@ AdminAsset::register($this);
                         </a>
                     </li>
 
+
+                    <li class="<?php if(in_array(Yii::$app->controller->getRoute(),[
+                            'coments/index',
+                            'coments/create',
+                            'coments/update',
+                            'coments/view',
+                        ])){echo 'active';}?>">
+                        <a href="<?=url::to(['coments/index'])?>">
+                            <i class="fa fa-dashboard"></i> <span>Komentariya</span>
+                        </a>
+                    </li>
+
+
                 </ul>
 
 
@@ -187,10 +200,17 @@ AdminAsset::register($this);
                     Dashboard
                     <small>Version 2.0</small>
                 </h1>
-                <ol class="breadcrumb">
+                <!-- <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                     <li class="active">Dashboard</li>
-                </ol>
+                </ol> -->
+                <?php
+                
+                echo Breadcrumbs::widget([
+                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                ]) 
+
+                ?>
             </section>
 
             <section class="content">
@@ -214,7 +234,7 @@ AdminAsset::register($this);
             <div class="pull-right hidden-xs">
                 <b>Version</b> 2.4.13
             </div>
-            <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io/">AdminLTE</a>.</strong> All rights
+            <strong>Copyright &copy; 2022 <a href="https://adminlte.io/">AdminLTE</a>.</strong> All rights
             reserved.
         </footer>
 
