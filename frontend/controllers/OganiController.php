@@ -142,4 +142,8 @@ class OganiController extends Controller
         return $this->render('contact');
     }
 
+    public function actionComent()
+    {
+        return $this->renderAjax('coment');
+    }
 }

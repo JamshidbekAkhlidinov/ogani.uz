@@ -32,7 +32,8 @@ function tozalash(){
     });  
 }
 
-
+$(document).ready(function(){
+    
 $(".show").click(function(e){
     e.preventDefault();
     $.ajax({
@@ -82,4 +83,22 @@ $(".addcard").click(function(e){
             console.log(data);
         },
     });
+   
   });
+
+  $('.coments').click(function(){
+    $.ajax({
+        url: '/ogani/coment',
+        type: 'GET',
+        success: function(data){
+            $(".comentdiv").html(data);
+            $("#coment").modal();
+        },
+        error: function(){
+            alert("xato");
+        }
+    }) ;
+
+  });
+
+});
