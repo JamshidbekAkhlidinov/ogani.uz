@@ -86,19 +86,4 @@ $(".addcard").click(function(e){
    
   });
 
-  $('.coments').click(function(){
-    $.ajax({
-        url: '/ogani/coment',
-        type: 'GET',
-        success: function(data){
-            $(".comentdiv").html(data);
-            $("#coment").modal();
-        },
-        error: function(){
-            alert("xato");
-        }
-    }) ;
-
-  });
-
 });

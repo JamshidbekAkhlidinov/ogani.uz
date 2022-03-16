@@ -5,16 +5,6 @@ use yii\helpers\Url;
 $this->title = "Blogs-details";
 $this->params['breadcrumbs'][] = $this->title;
 
-Modal::begin([
-    'title' => '<h2>Komenteriya qoldirishingiz mumkun </h2>',
-    'id'=>'coment',  
-    'size'=>'modal-lg',
-]);
-
-echo "<div class='comentdiv'></div>";
-
-Modal::end();
-
 ?>
 
     <!-- Blog Details Hero Begin -->
@@ -108,8 +98,6 @@ Modal::end();
                         <img src="<?=url::to('/backend/web/imgs/blogs/'.$model->img)?>" width="100%" alt="">
                         <h3><?=$model->title?></h3>
                         <p><?=str_replace("\n","<br>",$model->content)?></p>
-                    <h5 class="text-right coments" style="cursor: pointer;"><i class="fa fa-clipboard" aria-hidden="true"></i> Koment qoldirish</h5>
-
                     </div>
 
                     <div class="blog__details__content">
