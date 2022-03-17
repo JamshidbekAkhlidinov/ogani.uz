@@ -80,6 +80,11 @@ class BlogCategory extends \yii\db\ActiveRecord
         return $this->hasMany(Blog::className(), ['category_id' => 'id']);
     }
 
+    public function getBlogscount()
+    {
+        return $this->hasMany(Blog::className(), ['category_id' => 'id'])->count();
+    }
+
     /**
      * Gets query for [[CreatedBy]].
      *

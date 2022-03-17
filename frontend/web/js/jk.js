@@ -34,38 +34,46 @@ function tozalash(){
 
 $(document).ready(function(){
     
-$(".show").click(function(e){
-    e.preventDefault();
-    $.ajax({
-        type: 'get',
-        url: '/card/show',
-        success:function(data){
-            show(data);
-        },
-        error: function(data){
-            console.log(data);
-        },
-    });  
-  });
-
-
-
-$(".addcard").click(function(e){
-    e.preventDefault();
-    var id = $(this).data('id');
-    $.ajax({
-        data: {id: id},
-        type: 'get',
-        url: '/card/add',
-        success:function(data){
-            // console.log(data);
-            show(data);
-        },
-        error: function(data){
-            console.log(data);
-        },
+    $(".show").click(function(e){
+        e.preventDefault();
+        $.ajax({
+            type: 'get',
+            url: '/card/show',
+            success:function(data){
+                show(data);
+            },
+            error: function(data){
+                console.log(data);
+            },
+        }); 
     });
-  });
+
+
+
+    $(".addcard").click(function(e){
+
+        var soni = $("#cardSoni").text();
+        var soni2 = parseInt(soni)+1;
+        $("#cardSoni").text(soni2);
+        $("#cardSoni2").text(soni2);
+
+        e.preventDefault();
+        var id = $(this).data('id');
+        $.ajax({
+            data: {id: id},
+            type: 'get',
+            url: '/card/add',
+            success:function(data){
+                // console.log(data);
+                show(data);
+            },
+            error: function(data){
+                console.log(data);
+            },
+        });
+
+
+    });
 
   $(".addcardgroup").click(function(e){
     e.preventDefault();
@@ -102,7 +110,6 @@ $(".addcard").click(function(e){
             }
         });
   });
-
 
 
 

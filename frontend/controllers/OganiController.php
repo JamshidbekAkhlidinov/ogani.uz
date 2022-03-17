@@ -75,13 +75,13 @@ class OganiController extends Controller
 }
 
 
-    public function actionCategory($id=0,$min = 1,$max=1000000){
+    public function actionCategory($id=0,$min = 1,$max=1000000,$search = ''){
         $min = str_replace(["%24",'$'],['',''],$min);
         $max = str_replace(["%24",'$'],['',''],$max);
         if($id==0){
-        $category = Shop::find()->Where("price_new>=$min")->andWhere("price_new<=$max");
+        $category = Shop::find()->joinWith('translations')->Where("price_new>=$min")->andWhere("price_new<=$max")->andWhere(['like','name',$search]);
         }else{
-        $category = Shop::find()->where('category_id='.$id)->andWhere("price_new>=$min")->andWhere("price_new<=$max");
+        $category = Shop::find()->joinWith('translations')->where('category_id='.$id)->andWhere("price_new>=$min")->andWhere("price_new<=$max")->andWhere(['like','name',$search]);
         }
         
         $page = new Pagination([

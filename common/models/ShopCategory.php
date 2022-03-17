@@ -83,6 +83,12 @@ class ShopCategory extends \yii\db\ActiveRecord
         return $this->hasMany(Shop::className(), ['category_id' => 'id']);
     }
 
+    public function getShopscount()
+    {
+        return $this->hasMany(Shop::className(), ['category_id' => 'id'])->count();
+    }
+
+
     public function getCreatedBy(){
         return $this->hasOne(User::className(),['id'=>'created_by']);
     }

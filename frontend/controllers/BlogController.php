@@ -42,18 +42,26 @@ class BlogController extends Controller
         ];
     }
 
+    //        $query->joinWith('translations');
+
     const SHOP = 1;
     const BLOG  = 2;
-    public function actionIndex()
+    public function actionIndex($id = 0, $search = '')
     {
-        $blogs = Blog::find()->orderBy('created_at DESC');
+        if($id==0){
+            $blogs = Blog::find()->joinWith('translations')->multilingual()->orderBy('created_at DESC')->where(['like','title',$search]);
+        }else{
+            $blogs = Blog::find()->joinWith('translations')->orderBy('created_at DESC')->where('category_id='.$id)->andwhere(['like','title',$search]);
+        }
+
+
         $page = new Pagination([
             'totalCount'=>$blogs->count(),
             'defaultPageSize'=>6,
         ]);
         $model = $blogs->limit($page->limit)->offset($page->offset)->all();
 
-        return $this->render('index',['model'=>$model,'page'=>$page]);
+            return $this->render('index',['model'=>$model,'page'=>$page]);
     }
 
     public function actionBlogDetails($id)

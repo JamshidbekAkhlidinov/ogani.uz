@@ -13,9 +13,9 @@ if($id==0){
 echo '<li class="'.$class.'"><a href="'.Url::to(['ogani/category','id'=>0]).'">Hammasi</a>';
 foreach($category as $cate){
     if($cate->id==$id){
-        echo '<li class="pl-4 bg-success"><a href="'.Url::to(['ogani/category','id'=>$cate->id]).'">'.$cate->category_name.'</a></li>';
+        echo '<li class="pl-4 bg-success"><a href="'.Url::to(['ogani/category','id'=>$cate->id]).'">'.$cate->category_name.'('.$cate->shopscount.')</a></li>';
     }else{
-        echo '<li class=""><a href="'.Url::to(['ogani/category','id'=>$cate->id]).'">'.$cate->category_name.'</a></li>';
+        echo '<li class=""><a href="'.Url::to(['ogani/category','id'=>$cate->id]).'">'.$cate->category_name.' ('.$cate->shopscount.')</a></li>';
 
     }
 }

@@ -10,6 +10,12 @@ use yii\helpers\Url;
 OganiAsset::register($this);
 use yeesoft\multilingual\widgets\LanguageSwitcher;
 
+if(isset($_GET['id'])){
+    $idCategory = $_GET['id'];
+}else{
+    $idCategory = 0;
+}
+
 ?>
 <?php $this->beginPage() ?>
 
@@ -67,7 +73,7 @@ use yeesoft\multilingual\widgets\LanguageSwitcher;
             <ul>
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                 <li><a href="" class="show"><i class="fa fa-shopping-bag"></i>
-                        <span><?=isset($_SESSION['card.soni'])?$_SESSION['card.soni']:"0"?></span></a></li>
+                        <span id="cardSoni"><?=isset($_SESSION['card.soni'])?$_SESSION['card.soni']:"0"?></span></a></li>
             </ul>
             <div class="header__cart__price">item: <span>$150.00</span></div>
         </div>
@@ -193,7 +199,8 @@ use yeesoft\multilingual\widgets\LanguageSwitcher;
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             <li><a href="" class="show"><i class="fa fa-shopping-bag"></i>
-                                    <span><?=isset($_SESSION['card.soni'])?$_SESSION['card.soni']:"0"?></span></a></li>
+                                    <span id="cardSoni2"><?=isset($_SESSION['card.soni'])?$_SESSION['card.soni']:"0"?></span>
+                            </a></li>
 
                         </ul>
                         <div class="header__cart__price">item: <span>$150.00</span></div>
@@ -245,14 +252,22 @@ use yeesoft\multilingual\widgets\LanguageSwitcher;
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
-                                <div class="hero__search__categories">
-                                    All Categories
-                                    <span class="arrow_carrot-down"></span>
-                                    
-                                </div>
-                               
-                                <input type="text" placeholder="What do yo u need?">
+                            <?php
+                            if(in_array(Yii::$app->controller->getRoute(),[
+                                'ogani/shop-grid',
+                                'ogani/index',
+                                'ogani/category',
+                                'ogani/contact',
+                                'ogani/shop-details', 
+                            ])){
+                                $joy = 'ogani/category';
+                            }else{
+                                $joy = 'blog/index';
+                            }
+                            ?>
+                            <form action="<?=url::to([$joy])?>">
+                                <input type="hidden" name="id" value="<?=$idCategory?>">
+                                <input type="text" name="search" placeholder="What do yo u need?">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
@@ -283,7 +298,6 @@ use yeesoft\multilingual\widgets\LanguageSwitcher;
             </div>
         </div>
     </section>
-
     <?php if(Yii::$app->controller->getRoute()!=='ogani/index' and Yii::$app->controller->getRoute()!=='blog/blog-details' ): ?>
     <section class="breadcrumb-section set-bg" data-setbg="<?=url::to('@web/img/breadcrumb.jpg')?>">
         <div class="container">
