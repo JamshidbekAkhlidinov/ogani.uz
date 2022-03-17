@@ -95,53 +95,20 @@ $user = Yii::$app->user->identity;
                     </div>
 
                     <div class="tab-pane" id="settings">
-                        <form class="form-horizontal">
-                            <div class="form-group">
-                                <label for="inputName" class="col-sm-2 control-label">Name</label>
-                                <div class="col-sm-10">
-                                    <input type="email" class="form-control" id="inputName" placeholder="Name">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-                                <div class="col-sm-10">
-                                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputName" class="col-sm-2 control-label">Name</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputName" placeholder="Name">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputExperience" class="col-sm-2 control-label">Experience</label>
-                                <div class="col-sm-10">
-                                    <textarea class="form-control" id="inputExperience"
-                                        placeholder="Experience"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputSkills" class="col-sm-2 control-label">Skills</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-danger">Submit</button>
-                                </div>
-                            </div>
-                        </form>
+                    <?php $form  = ActiveForm::begin(['options'=>[
+                    //    'class'=>"form-horizontal",
+                   ]]); ?>
+
+                   <?=$form->field($parol,'parol0',['template'=>"<div class='form-group'>\n<div class='col-sm-2 control-label'>{beginLabel}\n{labelTitle}\n{endLabel}</div>\n<div class='col-sm-10 form-group'>{input}</div>\n</div>"])->passwordInput()?>
+                   
+                   <?=$form->field($parol,'parol1',['template'=>"<div class='form-group'>\n<div class='col-sm-2 control-label'>{beginLabel}\n{labelTitle}\n{endLabel}</div>\n<div class='col-sm-10 form-group'>{input}</div>\n</div>"])->passwordInput()?>
+
+                   <?=$form->field($parol,'parol2',['template'=>"<div class='form-group'>\n<div class='col-sm-2 control-label'>{beginLabel}\n{labelTitle}\n{endLabel}</div>\n<div class='col-sm-10 form-group'>{input}</div>\n</div>"])->passwordInput()?>
+                   
+                   <?=Html::submitButton("Saqlash",['class'=>'btn btn-success'])?>
+                   
+                   <?php ActiveForm::end()?>
+                     
                     </div>
 
                 </div>

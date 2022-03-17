@@ -51,13 +51,20 @@ $(document).ready(function(){
 
 
     $(".addcard").click(function(e){
+        e.preventDefault();
 
         var soni = $("#cardSoni").text();
         var soni2 = parseInt(soni)+1;
         $("#cardSoni").text(soni2);
         $("#cardSoni2").text(soni2);
 
-        e.preventDefault();
+        var  sum = $(this).data("sum");
+        var item = $("#sumCard1").text();
+        var itemplus = parseInt(item)+sum;
+        $("#sumCard1").text(itemplus);
+        $("#sumCard2").text(itemplus);
+
+
         var id = $(this).data('id');
         $.ajax({
             data: {id: id},
@@ -79,6 +86,19 @@ $(document).ready(function(){
     e.preventDefault();
     var id = $(this).data('id');
     var soni = $('#soni').val();
+
+
+    var soni1 = $("#cardSoni").text();
+    var soni2 = parseInt(soni1)+1;
+    $("#cardSoni").text(soni2);
+    $("#cardSoni2").text(soni2);
+
+    var  sum = $(this).data("sum");
+    var item = $("#sumCard1").text();
+    var itemplus = parseInt(item)+sum*soni;
+    $("#sumCard1").text(itemplus);
+    $("#sumCard2").text(itemplus);
+
     $.ajax({
         data: {id: id,soni: soni},
         type: 'get',

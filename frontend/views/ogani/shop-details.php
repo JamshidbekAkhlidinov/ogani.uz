@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </div>
                             </div>
                         </div>
-                        <a href="#" class="primary-btn addcardgroup" data-id="<?=$model->id?>">ADD TO CARD</a>
+                        <a href="#" class="primary-btn addcardgroup" data-sum="<?=$model->price_new?>" data-id="<?=$model->id?>">ADD TO CARD</a>
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
                             <li><b>Availability</b> <span>In Stock</span></li>

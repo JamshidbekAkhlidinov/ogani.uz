@@ -2,6 +2,7 @@
 
 
 use backend\assets\AdminAsset;
+use lavrentiev\widgets\toastr\Notification;
 use yii\widgets\Breadcrumbs;
 use yii\bootstrap4\Html;
 use yii\helpers\Url;
@@ -31,7 +32,7 @@ $user = Yii::$app->user->identity;
     <div class="wrapper">
         <header class="main-header">
 
-            <a href="index2.html" class="logo">
+            <a href="<?=url::home()?>" class="logo">
 
                 <span class="logo-mini"><b>A</b>LT</span>
 
@@ -98,17 +99,6 @@ $user = Yii::$app->user->identity;
                         <a href="<?=url::to(['dashboard/profil'])?>"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>
                 </div>
-
-                <form action="#" method="get" class="sidebar-form">
-                    <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search...">
-                        <span class="input-group-btn">
-                            <button type="submit" name="search" id="search-btn" class="btn btn-flat">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </span>
-                    </div>
-                </form>
 
 
 
@@ -203,18 +193,16 @@ $user = Yii::$app->user->identity;
                     Dashboard
                     <small>Version 2.0</small>
                 </h1>
-                <!-- <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Dashboard</li>
-                </ol> -->
                 <?php
                 
                 echo Breadcrumbs::widget([
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                ]) 
+                ]) ;
 
                 ?>
             </section>
+
+           
 
             <section class="content">
                 <?php if(!in_array(Yii::$app->controller->getRoute(),[
@@ -261,6 +249,26 @@ $user = Yii::$app->user->identity;
         <div class="control-sidebar-bg"></div>
     </div>
 
+
+    <?= \lavrentiev\widgets\toastr\NotificationFlash::widget([
+    'options' => [
+        "closeButton" => true,
+        "debug" => false,
+        "newestOnTop" => false,
+        "progressBar" => false,
+        "positionClass" => \lavrentiev\widgets\toastr\NotificationFlash::POSITION_TOP_RIGHT,
+        "preventDuplicates" => false,
+        "onclick" => null,
+        "showDuration" => "300",
+        "hideDuration" => "1000",
+        "timeOut" => "5000",
+        "extendedTimeOut" => "1000",
+        "showEasing" => "swing",
+        "hideEasing" => "linear",
+        "showMethod" => "fadeIn",
+        "hideMethod" => "fadeOut"
+    ]
+]) ?>
 
     <?php $this->endBody() ?>
 </body>

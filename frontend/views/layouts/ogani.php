@@ -71,11 +71,10 @@ if(isset($_GET['id'])){
         </div>
         <div class="humberger__menu__cart">
             <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                 <li><a href="" class="show"><i class="fa fa-shopping-bag"></i>
                         <span id="cardSoni"><?=isset($_SESSION['card.soni'])?$_SESSION['card.soni']:"0"?></span></a></li>
             </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
+            <div class="header__cart__price">item: <span id="sumCard2"><?=isset($_SESSION['card.sum'])?$_SESSION['card.sum']:"0"?></span></div>
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
@@ -203,7 +202,7 @@ if(isset($_GET['id'])){
                             </a></li>
 
                         </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                        <div class="header__cart__price">item: <span id="sumCard1"><?=isset($_SESSION['card.sum'])?$_SESSION['card.sum']:"0"?></span></div>
                     </div>
                 </div>
             </div>

@@ -51,6 +51,17 @@ return [
             ],
         ],
 
+        'assetManager' => [
+            'bundles' => [
+                'yii\bootstrap4\BootstrapAsset' => [
+                    'sourcePath' => null,   // do not publish the bundle
+                    'css' => [
+                        'bower_components/bootstrap/dist/css/bootstrap.min.css',
+                    ]
+                ],
+            ],
+        ],
+
     ],
     'params' => $params,
 ];

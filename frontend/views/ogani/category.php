@@ -211,8 +211,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="<?=url::to('/backend/web/imgs/products/'.$model->imgs[0]->name)?>">
                                 <ul class="product__item__pic__hover">
-                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="#" class="addcard" data-id="<?=$model->id?>"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li><a href="#" class="addcard" data-sum="<?=$model->price_new?>" data-id="<?=$model->id?>"><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                 </div>
                                 <div class="product__item__text">
