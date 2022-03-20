@@ -15,7 +15,7 @@ class Blog extends \yii\db\ActiveRecord
     use MultilingualLabelsTrait;
 
 
-    public static function tableName()
+    p   ublic static function tableName()
     {
         return 'blog';
     }
