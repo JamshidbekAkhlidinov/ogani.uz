@@ -178,6 +178,17 @@ $user = Yii::$app->user->identity;
                         </a>
                     </li>
 
+                    <li class="<?php if(in_array(Yii::$app->controller->getRoute(),[
+                            'javoblar/index',
+                            'javoblar/create',
+                            'javoblar/update',
+                            'javoblar/view',
+                        ])){echo 'active';}?>">
+                        <a href="<?=url::to(['javoblar/index'])?>">
+                            <i class="fa fa-dashboard"></i> <span>Javoblar</span>
+                        </a>
+                    </li>
+
 
                 </ul>
 

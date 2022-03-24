@@ -57,7 +57,7 @@ class BlogController extends Controller
 
         $page = new Pagination([
             'totalCount'=>$blogs->count(),
-            'defaultPageSize'=>6,
+            'defaultPageSize'=>12,
         ]);
         $model = $blogs->limit($page->limit)->offset($page->offset)->all();
 

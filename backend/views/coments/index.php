@@ -45,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'owner_id',
                 'format'=>'html',
                 'value'=>function($data){
-                    return Bootstrap4Html::a(substr($data->blogs->title,0,40),Url::to(['coments/view','id'=>$data->blogs->id]));
+                    return Bootstrap4Html::a(substr($data->blogs->title,0,40),Url::to(['blog/view','id'=>$data->blogs->id]));
 
                 }
               ],

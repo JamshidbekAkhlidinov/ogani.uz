@@ -1,6 +1,7 @@
 <?php
 
 use common\models\Coments;
+use common\models\Javoblar;
 use yii\bootstrap4\Modal;
 use yii\helpers\Url;
 $this->title = "Blogs-details";
@@ -81,23 +82,26 @@ Modal::end();
                                     </div>
                                 </div>
                             </div>
-                            <?php endforeach;
-                            }else{
-                                echo "<h3 class='pt-4'>Komentariyalar mavjud emas</h3>";
-                            }
-                            ?>
-
-                            <!-- <div class="col-lg-12 pt-2">
+                            <?php foreach(Javoblar::find()->orderBy('id desc')->andWhere(['coments_id'=>$coment->id])->limit(5)->all() as $reply):?>
+                            <div class="col-lg-12 pt-2">
                                 <div class="blog__details__author">
                                     <div class="blog__details__author__pic">
                                         <img src="<?=url::to('/backend/web/imgs/user/'.$model->createdBy->img)?>" alt="">
                                     </div>
                                     <div class="blog__details__author__text">
                                         <h6><?=$model->createdBy->name?></h6>
-                                        <span class="p-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta accusamus sapiente explicabo illum recusandae voluptate officia provident? Necessitatibus architecto suscipit delectus repellat iusto? Dolorum eligendi cumque quidem nulla officia velit!</span>
+                                        <span class="p-4"><?=$reply->text?></span>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
+                            <?php endforeach;?>
+                            <?php endforeach;
+                            }else{
+                                echo "<h3 class='pt-4'>Komentariyalar mavjud emas</h3>";
+                            }
+                            ?>
+
+                            
 
 
 
