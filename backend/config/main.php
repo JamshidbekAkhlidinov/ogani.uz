@@ -15,7 +15,11 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'homeUrl'=>'/admin',
-    'modules' => [],
+    'modules' => [
+        'telegrambot' => [
+            'class' => 'backend\modules\telegrambot\Modules',
+        ],
+    ],
     'components' => [
         'request' => [
             'baseUrl'=>'/admin',

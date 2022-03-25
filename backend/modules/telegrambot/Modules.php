@@ -1,16 +1,17 @@
 <?php
 
-namespace app\modules\telegrambot;
+namespace backend\modules\telegrambot;
 
 /**
  * telegrambot module definition class
  */
 class Modules extends \yii\base\Module
 {
+    public $defaultRoute = 'bot-murojatlar/index';
     /**
      * {@inheritdoc}
      */
-    public $controllerNamespace = 'app\modules\telegrambot\controllers';
+    public $controllerNamespace = 'backend\modules\telegrambot\controllers';
 
     /**
      * {@inheritdoc}

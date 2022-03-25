@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\telegrambot\controllers;
+namespace backend\modules\telegrambot\controllers;
 
 use yii\web\Controller;
 
