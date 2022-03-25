@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="eccb88e2-8430-4f34-8abd-639752ab6040" name="jamshidbek" url="http://myxvest.ru">
+        <fileTransfer rootFolder="/akhlidinov.myxvest.ru/ogani" host="myxvest.ru" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

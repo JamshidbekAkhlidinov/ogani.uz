@@ -6472,6 +6472,47 @@
                 }
             ],
             "install-path": "../yiisoft/yii2-swiftmailer"
+        },
+        {
+            "name": "ziya/telegram_proxy",
+            "version": "0.3",
+            "version_normalized": "0.3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ZiyaVakhobov/telegram_proxy.git",
+                "reference": "24f65b9760e857606c5f65fdf34b5df79fa93852"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ZiyaVakhobov/telegram_proxy/zipball/24f65b9760e857606c5f65fdf34b5df79fa93852",
+                "reference": "24f65b9760e857606c5f65fdf34b5df79fa93852",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*"
+            },
+            "time": "2021-04-19T17:06:46+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "ziya\\Proxy\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "ZiyaVakhobov",
+                    "email": "ziyavuddin.vakhobov@gmail.com"
+                }
+            ],
+            "description": "Package for proxying telegram bot without any webhook",
+            "support": {
+                "issues": "https://github.com/ZiyaVakhobov/telegram_proxy/issues",
+                "source": "https://github.com/ZiyaVakhobov/telegram_proxy/tree/0.3"
+            },
+            "install-path": "../ziya/telegram_proxy"
         }
     ],
     "dev": true,

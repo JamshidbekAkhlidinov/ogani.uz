@@ -28,6 +28,10 @@ class ComposerStaticInit71422491972caa5a2ae60f53ea8b58b0
     );
 
     public static $prefixLengthsPsr4 = array (
+        'z' => 
+        array (
+            'ziya\\Proxy\\' => 11,
+        ),
         'y' => 
         array (
             'yii\\swiftmailer\\' => 16,
@@ -125,6 +129,10 @@ class ComposerStaticInit71422491972caa5a2ae60f53ea8b58b0
     );
 
     public static $prefixDirsPsr4 = array (
+        'ziya\\Proxy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ziya/telegram_proxy/src',
+        ),
         'yii\\swiftmailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-swiftmailer/src',

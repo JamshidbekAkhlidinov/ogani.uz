@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "61179bee12cad40694d092ba4ed1c03a",
+    "content-hash": "15a2854814b7ead32b9e9a2d81301d7b",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -1973,6 +1973,44 @@
                 }
             ],
             "time": "2021-12-30T08:48:48+00:00"
+        },
+        {
+            "name": "ziya/telegram_proxy",
+            "version": "0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ZiyaVakhobov/telegram_proxy.git",
+                "reference": "24f65b9760e857606c5f65fdf34b5df79fa93852"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ZiyaVakhobov/telegram_proxy/zipball/24f65b9760e857606c5f65fdf34b5df79fa93852",
+                "reference": "24f65b9760e857606c5f65fdf34b5df79fa93852",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ziya\\Proxy\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "ZiyaVakhobov",
+                    "email": "ziyavuddin.vakhobov@gmail.com"
+                }
+            ],
+            "description": "Package for proxying telegram bot without any webhook",
+            "support": {
+                "issues": "https://github.com/ZiyaVakhobov/telegram_proxy/issues",
+                "source": "https://github.com/ZiyaVakhobov/telegram_proxy/tree/0.3"
+            },
+            "time": "2021-04-19T17:06:46+00:00"
         }
     ],
     "packages-dev": [

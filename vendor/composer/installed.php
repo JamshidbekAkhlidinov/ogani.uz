@@ -941,5 +941,14 @@
             'reference' => '7b7ec871b4a63c0abbcd10e1ee3fb5be22f8b340',
             'dev_requirement' => false,
         ),
+        'ziya/telegram_proxy' => array(
+            'pretty_version' => '0.3',
+            'version' => '0.3.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../ziya/telegram_proxy',
+            'aliases' => array(),
+            'reference' => '24f65b9760e857606c5f65fdf34b5df79fa93852',
+            'dev_requirement' => false,
+        ),
     ),
 );

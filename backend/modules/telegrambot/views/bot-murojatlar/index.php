@@ -1,5 +1,6 @@
 <?php
 
+use backend\modules\telegrambot\models\BotMurojatlar;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;

@@ -58,6 +58,6 @@ class BotMurojatlar extends \yii\db\ActiveRecord
      */
     public function getUser()
     {
-        return $this->hasOne(BotUser::className(), ['id' => 'user_id']);
+        return $this->hasOne(BotUsers::className(), ['id' => 'user_id']);
     }
 }
