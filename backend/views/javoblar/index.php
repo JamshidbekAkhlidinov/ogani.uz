@@ -34,8 +34,9 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'coments_id',
             [
                 'attribute'=>'coments_id',
+                'format'=>'html',
                 'value'=>function(Javoblar $data){
-                    return $data->coments->name;
+                    return html::a($data->coments->name,url::to(['coments/view','id'=>$data->coments->id]));
                 }
             ],
             'text:ntext',

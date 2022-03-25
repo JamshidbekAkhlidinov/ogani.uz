@@ -6,6 +6,7 @@ use yii\helpers\Url;
 
 $catgeory = BlogCategory::find()->orderBy('created_at DESC')->limit(10)->all();
 $blog3 = Blog::find()->orderBy('created_at DESC')->limit(3)->where('status=1')->all();
+
 if(isset($_GET['id'])){
     $id = $_GET['id'];
 }else{
@@ -28,7 +29,7 @@ if(isset($_GET['id'])){
                 <li class="pl-3" style="<?php if($id==0){echo "background-color: #7fad39;";}else{"";}?>"><a style="color: black;"  href="<?=url::to(['blog/index','id'=>0])?>">Hammasi</a></li>
                 <?php foreach($catgeory as $cat):    
                 ?>
-                <li class="pl-3" style="<?php if($id==$cat->id){echo "background-color: #7fad39;";}else{"";}?>"><a style="color: black;" href="<?=url::to(['blog/index','id'=>$cat->id])?>"><?=$cat->category_name?> (<?=$cat->blogscount?>)</a></li>
+                <li class="pl-3" style="<?php if($id==$cat->id){echo "background-color: #7fad39;";}else{"";}?>"><a style="color: black;" href="<?=url::to(['blog/index','id'=>$cat->id])?>"><?=$cat->category_name?> (<?=$cat->getBlogsCount()?>)</a></li>
                 <?php endforeach; ?>
             </ul>
         </div>

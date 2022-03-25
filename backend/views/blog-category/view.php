@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
@@ -31,11 +32,38 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'category_name',
-            'status',
-            'created_at',
-            'updated_at',
-            'created_by',
-            'updated_by',
+
+            [
+                'attribute'=>'status',
+                'format'=>'html',
+                'value'=>function($data){
+                    if($data->status==0){
+                        return "Aktiv emas";
+                    }
+                    return "Aktiv";
+                }
+            ],
+            [
+                'attribute'=>'img',
+                'format'=>'html',
+                'value'=>function($data){
+                    return Html::img(Url::to('/backend/web/imgs/blogcategory/'.$data->img),['width'=>'100px']);
+                }
+            ],
+            'created_at:date',
+            'updated_at:date',
+            [
+                'attribute'=>'created_by',
+                'value'=>function($data){
+                    return $data->createdBy->username;
+                }
+            ],
+            [
+                'attribute'=>'updated_by',
+                'value'=>function($data){
+                    return $data->updatedBy->username;
+                }
+            ],
         ],
     ]) ?>
 

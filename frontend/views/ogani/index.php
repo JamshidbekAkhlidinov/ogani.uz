@@ -1,33 +1,23 @@
- <!-- Categories Section Begin -->
+<?php
+
+use common\models\BlogCategory;
+use yii\helpers\Url;
+
+$category  = BlogCategory::find()->andWhere('status=1')->all();
+
+?>
+<!-- Categories Section Begin -->
  <section class="categories">
      <div class="container">
          <div class="row">
              <div class="categories__slider owl-carousel">
+               <?php foreach($category as $cat):?>
                  <div class="col-lg-3">
-                     <div class="categories__item set-bg" data-setbg="img/categories/cat-1.jpg">
-                         <h5><a href="#">Fresh Fruit</a></h5>
+                     <div class="categories__item set-bg" data-setbg="<?=Url::to("/backend/web/imgs/blogcategory/".$cat->img)?>">
+                         <h5><a href="<?=url::to([''])?>"><?=$cat->category_name?></a></h5>
                      </div>
                  </div>
-                 <div class="col-lg-3">
-                     <div class="categories__item set-bg" data-setbg="img/categories/cat-2.jpg">
-                         <h5><a href="#">Dried Fruit</a></h5>
-                     </div>
-                 </div>
-                 <div class="col-lg-3">
-                     <div class="categories__item set-bg" data-setbg="img/categories/cat-3.jpg">
-                         <h5><a href="#">Vegetables</a></h5>
-                     </div>
-                 </div>
-                 <div class="col-lg-3">
-                     <div class="categories__item set-bg" data-setbg="img/categories/cat-4.jpg">
-                         <h5><a href="#">drink fruits</a></h5>
-                     </div>
-                 </div>
-                 <div class="col-lg-3">
-                     <div class="categories__item set-bg" data-setbg="img/categories/cat-5.jpg">
-                         <h5><a href="#">drink fruits</a></h5>
-                     </div>
-                 </div>
+                <?php endforeach;?>
              </div>
          </div>
      </div>

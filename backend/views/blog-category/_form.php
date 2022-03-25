@@ -1,24 +1,36 @@
 <?php
 
+use kartik\file\FileInput;
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
 
-/* @var $this yii\web\View */
-/* @var $model common\models\BlogCategory */
-/* @var $form yii\widgets\ActiveForm */
+use kartik\switchinput\SwitchInput;
+use yeesoft\multilingual\widgets\ActiveForm;
+
 ?>
 
 <div class="blog-category-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'category_name')->textInput(['maxlength' => true]) ?>
+    <div class="col-lg-6">
+        <?=$form->languageSwitcher($model);?>
 
-    <?= $form->field($model, 'status')->dropDownList(['1'=>'Aktiv','0'=>'Aktiv emas']) ?>
+        <?= $form->field($model, 'status')->widget(SwitchInput::classname(), []);?>
 
-    <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
+
+        <?= $form->field($model, 'category_name')->textInput() ?>
+
+
+        <?= $form->field($model, 'img')->widget(FileInput::class,[]); ?>
+
+        <div class="form-group">
+            <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
+        </div>
+
     </div>
+
+
+
 
     <?php ActiveForm::end(); ?>
 

@@ -2,53 +2,50 @@
 
 namespace common\models;
 
+use yeesoft\multilingual\behaviors\MultilingualBehavior;
+use yeesoft\multilingual\db\MultilingualLabelsTrait;
+use yeesoft\multilingual\db\MultilingualQuery;
 use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 
-/**
- * This is the model class for table "blog_category".
- *
- * @property int $id
- * @property string|null $category_name
- * @property int|null $status
- * @property int|null $created_at
- * @property int|null $updated_at
- * @property int|null $created_by
- * @property int|null $updated_by
- *
- * @property Blog[] $blogs
- * @property User $createdBy
- * @property User $updatedBy
- */
 class BlogCategory extends \yii\db\ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
+    use MultilingualLabelsTrait;
+
     public static function tableName()
     {
         return 'blog_category';
     }
 
-
-    public function behaviors()
+     public function behaviors()
     {
         return [
+            'multilingual' => [
+                'class' => MultilingualBehavior::className(),
+                'languages' => [
+                    'ru' => 'Ruscha',
+                    'uz' => 'Uzbek',
+                ],
+                'attributes' => [
+                    'category_name',
+                ]
+            ],
             TimestampBehavior::class,
             BlameableBehavior::class,
         ];
     }
+    
+    const CREATED = 'crated';
+    const UPDATED = 'updated';
 
-    /**
-     * {@inheritdoc}
-     */
     public function rules()
     {
         return [
             [['status', 'created_at', 'updated_at', 'created_by', 'updated_by'], 'integer'],
-            [['category_name'], 'string', 'max' => 255],
-            [['category_name'], 'required'],
+            [['img'], 'string', 'max' => 255],
+            [['img','category_name','status'],'required','on'=>self::CREATED],
+            [['category_name','status'],'required','on'=>self::UPDATED],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
             [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['updated_by' => 'id']],
         ];
@@ -61,14 +58,20 @@ class BlogCategory extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'category_name' => Yii::t('app', 'Category Name'),
             'status' => Yii::t('app', 'Status'),
+            'img' => Yii::t('app', 'Img'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
             'created_by' => Yii::t('app', 'Created By'),
             'updated_by' => Yii::t('app', 'Updated By'),
         ];
     }
+
+    public static function find()
+    {
+        return new MultilingualQuery(get_called_class());
+    }
+    
 
     /**
      * Gets query for [[Blogs]].
@@ -80,10 +83,11 @@ class BlogCategory extends \yii\db\ActiveRecord
         return $this->hasMany(Blog::className(), ['category_id' => 'id']);
     }
 
-    public function getBlogscount()
+    public function getBlogsCount()
     {
         return $this->hasMany(Blog::className(), ['category_id' => 'id'])->count();
     }
+
 
     /**
      * Gets query for [[CreatedBy]].

@@ -14,13 +14,23 @@ class m220315_055206_create_blogs_table extends Migration
     {
         $this->createTable('{{%blog_category}}', [
             'id' => $this->primaryKey(),
-            'category_name'=>$this->string(),
             'status'=>$this->integer(),
+            'img'=>$this->string(),
             'created_at'=>$this->integer(),
             'updated_at'=>$this->integer(),
             'created_by'=>$this->integer(),
             'updated_by'=>$this->integer(),
         ]);
+
+        $this->createTable('{{%blog_category_lang}}', [
+            'id' => $this->primaryKey(),
+            'language'=>$this->string(),
+            'owner_id'=>$this->integer(),
+            'category_name'=>$this->string(),
+        ]);
+
+        $this->addForeignKey('fk_blog_cate_lang_tbale','{{%blog_category_lang}}','owner_id','{{%blog_category}}','id','cascade','cascade');
+
 
         $this->createTable('{{%blog}}', [
             'id' => $this->primaryKey(),
@@ -54,6 +64,9 @@ class m220315_055206_create_blogs_table extends Migration
      */
     public function safeDown()
     {
+
+        $this->dropForeignKey('fk_blog_cate_lang_tbale','{{%blog_category_lang}}');
+
         $this->dropForeignKey('fk_blogs_category_table','{{%blog}}');
         $this->dropForeignKey('fk_blogs_blog_lang','{{%blog_lang}}');
         $this->dropForeignKey('fk_user_id_category1','{{%blog_category}}');
@@ -61,6 +74,7 @@ class m220315_055206_create_blogs_table extends Migration
 
 
         $this->dropTable('{{%blog_category}}');
+        $this->dropTable('{{%blog_category_lang}}');
         $this->dropTable('{{%blog}}');
         $this->dropTable('{{%blog_lang}}');
     }

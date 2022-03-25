@@ -111,4 +111,13 @@ return array (
       '@kartik/rating' => $vendorDir . '/kartik-v/yii2-widget-rating/src',
     ),
   ),
+  'kartik-v/yii2-widget-switchinput' => 
+  array (
+    'name' => 'kartik-v/yii2-widget-switchinput',
+    'version' => 'dev-master',
+    'alias' => 
+    array (
+      '@kartik/switchinput' => $vendorDir . '/kartik-v/yii2-widget-switchinput',
+    ),
+  ),
 );

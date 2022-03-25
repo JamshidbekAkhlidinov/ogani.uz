@@ -277,6 +277,17 @@
             'reference' => '25fbe4b93b8acbac325fa4f594a983be1e84a780',
             'dev_requirement' => false,
         ),
+        'kartik-v/yii2-widget-switchinput' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'yii2-extension',
+            'install_path' => __DIR__ . '/../kartik-v/yii2-widget-switchinput',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'reference' => '10afe2ac8274da9371b43aaf69e99fc553f1b947',
+            'dev_requirement' => false,
+        ),
         'lavrentiev/yii2-toastr' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',

@@ -50,6 +50,7 @@ class ComposerStaticInit71422491972caa5a2ae60f53ea8b58b0
         ),
         'k' => 
         array (
+            'kartik\\switchinput\\' => 19,
             'kartik\\select2\\' => 15,
             'kartik\\rating\\' => 14,
             'kartik\\plugins\\fileinput\\' => 25,
@@ -169,6 +170,10 @@ class ComposerStaticInit71422491972caa5a2ae60f53ea8b58b0
         'lavrentiev\\widgets\\toastr\\' => 
         array (
             0 => __DIR__ . '/..' . '/lavrentiev/yii2-toastr/src',
+        ),
+        'kartik\\switchinput\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-switchinput',
         ),
         'kartik\\select2\\' => 
         array (
