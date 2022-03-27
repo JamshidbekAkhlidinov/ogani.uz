@@ -46,6 +46,7 @@ class BlogController extends Controller
 
     const SHOP = 1;
     const BLOG  = 2;
+
     public function actionIndex($id = 0, $search = '')
     {
         if($id==0){
@@ -57,7 +58,7 @@ class BlogController extends Controller
 
         $page = new Pagination([
             'totalCount'=>$blogs->count(),
-            'defaultPageSize'=>12,
+            'defaultPageSize'=>6,
         ]);
         $model = $blogs->limit($page->limit)->offset($page->offset)->all();
 

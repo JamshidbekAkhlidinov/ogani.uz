@@ -100,13 +100,12 @@ if(isset($_GET['id'])){
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
-            <ul>
-                <li class="active"><a href="<?=url::home()?>">Home</a></li>
-                <li><a href=shop-grid">Shop</>
-                </li>
-                <li><a href=blog">Blog</a></li>
-                <li><a href=contact">Contact</a></li>
-            </ul>
+        <ul>
+            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/index')?'active':''?>"><a href="<?=url::home()?>">Home</a></li>
+            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/shop-grid')?'active':''?>"><a href="<?=url::to(['ogani/shop-grid'])?>">Shop</a></li>
+            <li class="<?=(Yii::$app->controller->getRoute()=='blog/index')?'active':''?>"><a href="<?=url::to(['blog/index'])?>">Blog</a></li>
+            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/contact')?'active':''?>"><a href="<?=url::to(['ogani/contact'])?>">Contact</a></li>
+        </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
         <div class="header__top__right__social">
@@ -182,21 +181,16 @@ if(isset($_GET['id'])){
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/index')?'active':''?>"><a
-                                    href="<?=url::home()?>">Home</a></li>
-                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/shop-grid')?'active':''?>"><a
-                                    href="<?=url::to(['ogani/shop-grid'])?>">Shop</a></li>
-                            <li class="<?=(Yii::$app->controller->getRoute()=='blog/index')?'active':''?>"><a
-                                    href="<?=url::to(['blog/index'])?>">Blog</a></li>
-                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/contact')?'active':''?>"><a
-                                    href="<?=url::to(['ogani/contact'])?>">Contact</a></li>
+                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/index')?'active':''?>"><a href="<?=url::home()?>">Home</a></li>
+                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/shop-grid')?'active':''?>"><a href="<?=url::to(['ogani/shop-grid'])?>">Shop</a></li>
+                            <li class="<?=(Yii::$app->controller->getRoute()=='blog/index')?'active':''?>"><a href="<?=url::to(['blog/index'])?>">Blog</a></li>
+                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/contact')?'active':''?>"><a href="<?=url::to(['ogani/contact'])?>">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             <li><a href="" class="show"><i class="fa fa-shopping-bag"></i>
                                     <span id="cardSoni2"><?=isset($_SESSION['card.soni'])?$_SESSION['card.soni']:"0"?></span>
                             </a></li>
@@ -288,7 +282,7 @@ if(isset($_GET['id'])){
                             <span>FRUIT FRESH</span>
                             <h2>Vegetable <br />100% Organic</h2>
                             <p>Free Pickup and Delivery Available</p>
-                            <a href="#" class="primary-btn">SHOP NOW</a>
+                            <a href="<?=url::to(['ogani/shop-grid'])?>" class="primary-btn" >SHOP NOW</a>
                         </div>
                     </div>
 

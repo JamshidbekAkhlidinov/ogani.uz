@@ -36,6 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $data->category->category_name;
                 }
             ],
+            'name',
             'price',
             'price_new',
             //'status',
