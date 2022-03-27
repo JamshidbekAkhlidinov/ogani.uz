@@ -43,8 +43,9 @@ class BlogCategory extends \yii\db\ActiveRecord
     {
         return [
             [['status', 'created_at', 'updated_at', 'created_by', 'updated_by'], 'integer'],
-            [['img'], 'string', 'max' => 255],
-            [['img','category_name','status'],'required','on'=>self::CREATED],
+            // [['img'], 'string', 'max' => 255],
+            // [['img','category_name','status'],'required','on'=>self::CREATED],
+            [['category_name','status'],'required','on'=>self::CREATED],
             [['category_name','status'],'required','on'=>self::UPDATED],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
             [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['updated_by' => 'id']],
@@ -59,7 +60,7 @@ class BlogCategory extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'status' => Yii::t('app', 'Status'),
-            'img' => Yii::t('app', 'Img'),
+            // 'img' => Yii::t('app', 'Img'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
             'created_by' => Yii::t('app', 'Created By'),

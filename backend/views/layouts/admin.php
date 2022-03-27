@@ -77,10 +77,6 @@ $user = Yii::$app->user->identity;
                                 </li>
                             </ul>
                         </li>
-
-                        <li>
-                            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                        </li>
                     </ul>
                 </div>
             </nav>
@@ -243,21 +239,7 @@ $user = Yii::$app->user->identity;
             reserved.
         </footer>
 
-        <aside class="control-sidebar control-sidebar-dark">
 
-
-            <div class="tab-content">
-
-                <div  id="control-sidebar-home-tab">
-                   
-
-                </div>
-
-            </div>
-        </aside>
-
-
-        <div class="control-sidebar-bg"></div>
     </div>
 
 

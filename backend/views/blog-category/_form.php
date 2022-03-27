@@ -21,7 +21,6 @@ use yeesoft\multilingual\widgets\ActiveForm;
         <?= $form->field($model, 'category_name')->textInput() ?>
 
 
-        <?= $form->field($model, 'img')->widget(FileInput::class,[]); ?>
 
         <div class="form-group">
             <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

@@ -62,12 +62,12 @@ class BlogCategoryController extends DefaultController
         $model->scenario = BlogCategory::CREATED;
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
-                $rasm = UploadedFile::getInstance($model,'img');
-                if($rasm){
-                    $name = Yii::$app->getSecurity()->generateRandomString().".".$rasm->extension;
-                    $rasm->saveAs('imgs/blogcategory/'.$name);
-                    $model->img = $name;
-                }
+                // $rasm = UploadedFile::getInstance($model,'img');
+                // if($rasm){
+                //     $name = Yii::$app->getSecurity()->generateRandomString().".".$rasm->extension;
+                //     $rasm->saveAs('imgs/blogcategory/'.$name);
+                //     $model->img = $name;
+                // }
                 $model->save();
                 return $this->redirect(['view', 'id' => $model->id]);
             }
@@ -95,15 +95,15 @@ class BlogCategoryController extends DefaultController
         $model->scenario = BlogCategory::UPDATED;
 
         if ($this->request->isPost && $model->load($this->request->post())) {
-                $rasm = UploadedFile::getInstance($model,'img');
-                if($rasm){
-                    if($name and file_exists('imgs/blogcategory/'.$name)){
-                        unlink('imgs/blogcategory/'.$name);
-                    }
-                    $name = Yii::$app->getSecurity()->generateRandomString().".".$rasm->extension;
-                    $rasm->saveAs('imgs/blogcategory/'.$name);
-                }
-                $model->img = $name;
+                // $rasm = UploadedFile::getInstance($model,'img');
+                // if($rasm){
+                //     if($name and file_exists('imgs/blogcategory/'.$name)){
+                //         unlink('imgs/blogcategory/'.$name);
+                //     }
+                //     $name = Yii::$app->getSecurity()->generateRandomString().".".$rasm->extension;
+                //     $rasm->saveAs('imgs/blogcategory/'.$name);
+                // }
+                // $model->img = $name;
                 $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }

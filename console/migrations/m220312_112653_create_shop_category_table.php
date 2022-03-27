@@ -12,12 +12,14 @@ class m220312_112653_create_shop_category_table extends Migration
     {
         $this->createTable('{{%shop_category}}', [
             'id' => $this->primaryKey(),
+            'img'=>$this->string(),
             'status'=>$this->integer(),
             'created_at'=>$this->integer(),
             'updated_at'=>$this->integer(),
             'created_by'=>$this->integer(),
             'updated_by'=>$this->integer(),
         ]);
+        
     }
 
     /**

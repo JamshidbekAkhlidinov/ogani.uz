@@ -41,13 +41,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             // 'img',
-            [
-                'attribute'=>'img',
-                'format'=>'html',
-                'value'=>function($data){
-                    return Html::img(url::to('/backend/web/imgs/blogcategory/'.$data->img),['width'=>'100px']);
-                }
-            ],
+            // [
+            //     'attribute'=>'img',
+            //     'format'=>'html',
+            //     'value'=>function($data){
+            //         return Html::img(url::to('/backend/web/imgs/blogcategory/'.$data->img),['width'=>'100px']);
+            //     }
+            // ],
             'created_at:date',
             'updated_at:date',
             //'created_by',

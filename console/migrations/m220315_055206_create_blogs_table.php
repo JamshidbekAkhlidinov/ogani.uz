@@ -15,7 +15,6 @@ class m220315_055206_create_blogs_table extends Migration
         $this->createTable('{{%blog_category}}', [
             'id' => $this->primaryKey(),
             'status'=>$this->integer(),
-            'img'=>$this->string(),
             'created_at'=>$this->integer(),
             'updated_at'=>$this->integer(),
             'created_by'=>$this->integer(),

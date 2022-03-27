@@ -23,6 +23,8 @@ class m220316_045034_create_coments_table extends Migration
             'created_at'=>$this->integer(),
             'updated_at'=>$this->integer(),
         ]);
+
+        $this->addForeignKey('fk_blogs_cemnts_table','{{%coments}}','owner_id','blog','id','cascade','cascade');
     }
 
     /**
@@ -30,6 +32,7 @@ class m220316_045034_create_coments_table extends Migration
      */
     public function safeDown()
     {
+        $this->dropForeignKey('fk_blogs_cemnts_table','{{%coments}}');
         $this->dropTable('{{%coments}}');
     }
 }

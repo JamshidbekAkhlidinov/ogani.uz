@@ -43,13 +43,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     return "Aktiv";
                 }
             ],
-            [
-                'attribute'=>'img',
-                'format'=>'html',
-                'value'=>function($data){
-                    return Html::img(Url::to('/backend/web/imgs/blogcategory/'.$data->img),['width'=>'100px']);
-                }
-            ],
+            // [
+            //     'attribute'=>'img',
+            //     'format'=>'html',
+            //     'value'=>function($data){
+            //         return Html::img(Url::to('/backend/web/imgs/blogcategory/'.$data->img),['width'=>'100px']);
+            //     }
+            // ],
             'created_at:date',
             'updated_at:date',
             [
