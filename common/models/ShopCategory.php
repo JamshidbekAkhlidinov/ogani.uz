@@ -37,11 +37,14 @@ class ShopCategory extends \yii\db\ActiveRecord
         ];
     }
 
+    const CEREATED = 'created';
+    const UPDATED = 'updated';
     public function rules()
     {
         return [
             ['category_name','string'],
-            [['category_name','status'],'required'],
+            [['img','category_name','status'],'required','on'=>self::CEREATED],
+            [['category_name','status'],'required','on'=>self::UPDATED],
             
             [['status', 'created_at', 'updated_at', 'created_by', 'updated_by'], 'integer'],
         ];

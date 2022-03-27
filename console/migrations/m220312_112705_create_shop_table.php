@@ -18,6 +18,8 @@ class m220312_112705_create_shop_table extends Migration
             'category_id'=>$this->integer(),
             'price'=>$this->string(),
             'price_new'=>$this->string(),
+            'sale'=>$this->string(),
+            'weight'=>$this->string(),
             'status'=>$this->integer(),
             'created_at'=>$this->integer(),
             'updated_at'=>$this->integer(),

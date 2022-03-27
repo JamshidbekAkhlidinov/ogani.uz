@@ -16,13 +16,18 @@ use yeesoft\multilingual\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <div class="col-lg-6">
-        <?=$form->field($model,'img')->widget(FileInput::class,[])?>
+    <?= $form->field($model, 'img')->widget(FileInput::class,[
+        'pluginOptions' => [
+            'showCaption' => false,
+            'showRemove' => false,
+            'showUpload' => false,
+            'browseLabel' =>  'Select Photo'
+            ],
+    ]) ?>    
     </div>
 
-
-  
-    <div class="col-lg-6">
-    <?= $form->languageSwitcher($model); ?>
+   <div class="col-lg-6">
+   <?= $form->languageSwitcher($model); ?>
 
 <?= $form->field($model, 'category_name')->textInput() ?>
 
@@ -31,8 +36,7 @@ use yeesoft\multilingual\widgets\ActiveForm;
 <div class="form-group">
     <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
 </div>
-
-    </div>
+   </div>
 
     <?php ActiveForm::end(); ?>
 

@@ -32,6 +32,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             // 'status',
             [
+                'attribute'=>'img',
+                'format'=>'html',
+                'value'=>function($data){
+                    return html::img('/backend/web/imgs/shopcategory/'.$data->img,['width'=>'100px']);
+                }
+            ],
+            [
                 'attribute'=>'status',
                 'format'=>'html',
                 'value'=>function($data){

@@ -8,35 +8,13 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ShopCategoryController implements the CRUD actions for ShopCategory model.
  */
-class ShopCategoryController extends Controller
+class ShopCategoryController extends DefaultController
 {
-    /**
-     * @inheritDoc
-     */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
-    }
-
-    /**
-     * Lists all ShopCategory models.
-     *
-     * @return string
-     */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
@@ -80,14 +58,19 @@ class ShopCategoryController extends Controller
     {
         $model = new ShopCategory();
 
+        $model->scenario = ShopCategory::CEREATED;
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+            if ($model->load($this->request->post())) {
+                $rasm = UploadedFile::getInstance($model,'img');
+                if($rasm){
+                    $name = Yii::$app->getSecurity()->generateRandomString().".".$rasm->extension;
+                    $rasm->saveAs('imgs/shopcategory/'.$name);
+                    $model->img = $name;
+                }
+                $model->save();
                 return $this->redirect(['view', 'id' => $model->id]);
             }
-        } else {
-            $model->loadDefaultValues();
         }
-
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -104,7 +87,20 @@ class ShopCategoryController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+        $name = $model->img;
+        $model->scenario = ShopCategory::UPDATED;
+
+        if ($this->request->isPost && $model->load($this->request->post())) {
+                $rasm = UploadedFile::getInstance($model,'img');
+                if($rasm){
+                    if($name and file_exists('imgs/shopcategory/'.$name)){
+                        unlink('imgs/shopcategory/'.$name);
+                    }
+                    $name = Yii::$app->getSecurity()->generateRandomString().".".$rasm->extension;
+                    $rasm->saveAs('imgs/shopcategory/'.$name);
+                }
+                $model->img = $name;
+                $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

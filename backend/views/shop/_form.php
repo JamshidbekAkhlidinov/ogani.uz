@@ -16,9 +16,15 @@ $data = ArrayHelper::map($category,'id','category_name');
 
     <?php $form = ActiveForm::begin(); ?>
 
+
+    <div class="col-lg-6">
+
     <?=$form->languageSwitcher($model)?>
 
     <?= $form->field($model, 'name')->textInput() ?>
+    <?= $form->field($model, 'shipping')->textInput() ?>
+    <?= $form->field($model, 'content')->textArea(['rows'=>10]) ?>
+
     <?= $form->field($model, 'category_id')->widget(Select2::classname(), [
     'data' => $data,
     'options' => [
@@ -31,9 +37,12 @@ $data = ArrayHelper::map($category,'id','category_name');
     ],
     ]);
     ?>
-    <?= $form->field($model, 'shipping')->textInput() ?>
+    </div>
+
+   
+    <div class="col-lg-6">
+
     <?= $form->field($model, 'weight')->textInput() ?>
-    <?= $form->field($model, 'content')->textArea() ?>
     <?= $form->field($model, 'sale')->textInput() ?>
     <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'price_new')->textInput(['maxlength' => true]) ?>
@@ -53,16 +62,21 @@ $data = ArrayHelper::map($category,'id','category_name');
     ]); ?>
 
 
-
-
-
-
-
-
-
-    <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
     </div>
+
+
+    <div class="col-lg-12">
+    <div class="form-group">
+        <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success btn-block']) ?>
+    </div>
+    </div>
+
+
+
+
+
+
+  
 
     <?php ActiveForm::end(); ?>
 

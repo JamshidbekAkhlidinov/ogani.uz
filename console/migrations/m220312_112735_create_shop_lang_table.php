@@ -18,9 +18,7 @@ class m220312_112735_create_shop_lang_table extends Migration
             'owner_id'=>$this->integer(),
             'name'=>$this->string(),
             'shipping'=>$this->string(),
-            'weight'=>$this->string(),
             'content'=>$this->text(),
-            'sale'=>$this->string(),
         ]);
         $this->addForeignKey('fk_shop_lang','{{%shop_lang}}','owner_id','{{%shop}}','id','CASCADE','CASCADE');
     }

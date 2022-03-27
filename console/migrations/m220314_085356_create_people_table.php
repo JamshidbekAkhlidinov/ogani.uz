@@ -19,6 +19,7 @@ class m220314_085356_create_people_table extends Migration
             'email'=>$this->string(),
             'address'=>$this->string(),
             'phone'=>$this->string(),
+            'status'=>$this->integer(),
             'created_at'=>$this->integer(),
             'updated_at'=>$this->integer(),
         ]);

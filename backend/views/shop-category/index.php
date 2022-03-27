@@ -28,6 +28,13 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
+            [
+                'attribute'=>'img',
+                'format'=>'html',
+                'value'=>function($data){
+                    return html::img('/backend/web/imgs/shopcategory/'.$data->img,['width'=>'100px']);
+                }
+            ],
             'category_name',
             // 'status',
             [
