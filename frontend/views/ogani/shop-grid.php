@@ -18,7 +18,7 @@ $latest = Shop::find()->limit(6)->orderBy('created_at desc')->andWhere('status=1
                 <div class="col-lg-3 col-md-5">
                     <div class="sidebar">
                         <div class="sidebar__item">
-                            <h4>Department</h4>
+                            <h4><?=yii::t('app','Department')?></h4>
                             <ul>
                                <?php
                                include_once "shop_category.php";
@@ -70,7 +70,7 @@ $latest = Shop::find()->limit(6)->orderBy('created_at desc')->andWhere('status=1
                 <div class="col-lg-9 col-md-7">
                     <div class="product__discount">
                         <div class="section-title product__discount__title">
-                            <h2>Sale Off</h2>
+                            <h2><?=Yii::t('app','Sale Off')?></h2>
                         </div>
                         <div class="row">
                             <div class="product__discount__slider owl-carousel">

@@ -120,4 +120,13 @@ return array (
       '@kartik/switchinput' => $vendorDir . '/kartik-v/yii2-widget-switchinput',
     ),
   ),
+  'wokster/yii2-translation-manager' => 
+  array (
+    'name' => 'wokster/yii2-translation-manager',
+    'version' => '1.1.0.0',
+    'alias' => 
+    array (
+      '@wokster/translationmanager' => $vendorDir . '/wokster/yii2-translation-manager',
+    ),
+  ),
 );

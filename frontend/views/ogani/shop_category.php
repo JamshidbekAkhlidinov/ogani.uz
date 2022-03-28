@@ -10,7 +10,7 @@ if($id==0){
 }else{
     $class = '';
 }
-echo '<li class="'.$class.'"><a href="'.Url::to(['ogani/category','id'=>0]).'">Hammasi</a>';
+echo '<li class="'.$class.'"><a href="'.Url::to(['ogani/category','id'=>0]).'">'.yii::t('app','All').'</a>';
 foreach($category as $cate){
     if($cate->id==$id){
         echo '<li class="pl-4 bg-success"><a href="'.Url::to(['ogani/category','id'=>$cate->id]).'">'.$cate->category_name.'('.$cate->shopscount.')</a></li>';

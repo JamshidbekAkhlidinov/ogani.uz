@@ -19,23 +19,23 @@ class Shop extends \yii\db\ActiveRecord
         return 'shop';
     }
 
- public function behaviors()
-    {
-        return [
-            'multilingual' => [
-                'class' => MultilingualBehavior::className(),
-                'languages' => [
-                    'ru' => 'Ruscha',
-                    'uz' => 'Uzbek',
+    public function behaviors()
+        {
+            return [
+                'multilingual' => [
+                    'class' => MultilingualBehavior::className(),
+                    'languages' => [
+                        'ru' => 'Ruscha',
+                        'uz' => 'Uzbek',
+                    ],
+                    'attributes' => [
+                        'name', 'shipping','content',
+                    ]
                 ],
-                'attributes' => [
-                    'name', 'shipping','content',
-                ]
-            ],
-            TimestampBehavior::class,
-            BlameableBehavior::class,
-        ];
-    }
+                TimestampBehavior::class,
+                BlameableBehavior::class,
+            ];
+        }
 
     const CREATE = 'create';
     const UPDATE = 'update';

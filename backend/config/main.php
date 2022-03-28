@@ -19,6 +19,10 @@ return [
         'telegrambot' => [
             'class' => 'backend\modules\telegrambot\Modules',
         ],
+        'translate-manager' => [
+            'class' => 'wokster\translationmanager\TranslationManager',
+            'languages' => ['uz','ru'],
+        ],
     ],
     'components' => [
         'request' => [

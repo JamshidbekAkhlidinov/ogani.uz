@@ -1,7 +1,7 @@
 <?php
 
-
-
+use common\models\Contactus;
+use common\models\Home;
 use frontend\assets\OganiAsset;
 use yii\bootstrap4\Breadcrumbs;
 use yii\bootstrap4\Html;
@@ -16,6 +16,8 @@ if(isset($_GET['id'])){
     $idCategory = 0;
 }
 
+$contact =  Contactus::find()->limit(1)->orderBy('id desc')->one();
+$home = Home::find()->limit(1)->orderBy('id desc')->one();
 ?>
 <?php $this->beginPage() ?>
 
@@ -67,7 +69,7 @@ if(isset($_GET['id'])){
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="<?=url::to('@web/img/logo.png')?>" alt=""></a>
+            <a href="<?=url::home()?>"><img src="<?=url::to('/backend/web/imgs/home/'.$contact->logo)?>" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
@@ -96,15 +98,15 @@ if(isset($_GET['id'])){
                                 ?>
             </div>
             <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
+                <a href="#"><i class="fa fa-user"></i> <?=Yii::t('app','Login')?></a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
         <ul>
-            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/index')?'active':''?>"><a href="<?=url::home()?>">Home</a></li>
-            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/shop-grid')?'active':''?>"><a href="<?=url::to(['ogani/shop-grid'])?>">Shop</a></li>
-            <li class="<?=(Yii::$app->controller->getRoute()=='blog/index')?'active':''?>"><a href="<?=url::to(['blog/index'])?>">Blog</a></li>
-            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/contact')?'active':''?>"><a href="<?=url::to(['ogani/contact'])?>">Contact</a></li>
+            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/index')?'active':''?>"><a href="<?=url::home()?>"><?=Yii::t('app','Home')?></a></li>
+            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/shop-grid')?'active':''?>"><a href="<?=url::to(['ogani/shop-grid'])?>"> <?=Yii::t('app','Shop')?></a></li>
+            <li class="<?=(Yii::$app->controller->getRoute()=='blog/index')?'active':''?>"><a href="<?=url::to(['blog/index'])?>"> <?=Yii::t('app','Blog')?></a></li>
+            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/contact')?'active':''?>"><a href="<?=url::to(['ogani/contact'])?>"> <?=Yii::t('app','Contact')?></a></li>
         </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -116,8 +118,8 @@ if(isset($_GET['id'])){
         </div>
         <div class="humberger__menu__contact">
             <ul>
-                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li>
+                <li><i class="fa fa-envelope"></i><?=$contact->email?></li>
+                <li><?=yii::t('app','Free Shipping for all Order of $99')?></li>
             </ul>
         </div>
     </div>
@@ -131,8 +133,8 @@ if(isset($_GET['id'])){
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                                <li>Free Shipping for all Order of $99</li>
+                                <li><i class="fa fa-envelope"></i><?=$contact->email?></li>
+                                <li><?=yii::t('app','Free Shipping for all Order of $99')?></li>
                             </ul>
                         </div>
                     </div>
@@ -164,7 +166,7 @@ if(isset($_GET['id'])){
                                 ?>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                                <a href="#"><i class="fa fa-user"></i> <?=yii::t('app','Login')?></a>
                             </div>
                         </div>
                     </div>
@@ -175,16 +177,16 @@ if(isset($_GET['id'])){
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="<?=url::home()?>"><img src="<?=url::to('@web/img//logo.png')?>" alt=""></a>
+                        <a href="<?=url::home()?>"><img src="<?=url::to('/backend/web/imgs/home/'.$contact->logo)?>" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/index')?'active':''?>"><a href="<?=url::home()?>">Home</a></li>
-                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/shop-grid')?'active':''?>"><a href="<?=url::to(['ogani/shop-grid'])?>">Shop</a></li>
-                            <li class="<?=(Yii::$app->controller->getRoute()=='blog/index')?'active':''?>"><a href="<?=url::to(['blog/index'])?>">Blog</a></li>
-                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/contact')?'active':''?>"><a href="<?=url::to(['ogani/contact'])?>">Contact</a></li>
+                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/index')?'active':''?>"><a href="<?=url::home()?>"><?=Yii::t('app','Home')?></a></li>
+                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/shop-grid')?'active':''?>"><a href="<?=url::to(['ogani/shop-grid'])?>"><?=yii::t('app','Shop')?></a></li>
+                            <li class="<?=(Yii::$app->controller->getRoute()=='blog/index')?'active':''?>"><a href="<?=url::to(['blog/index'])?>"><?=yii::t('app','Blog')?></a></li>
+                            <li class="<?=(Yii::$app->controller->getRoute()=='ogani/contact')?'active':''?>"><a href="<?=url::to(['ogani/contact'])?>"><?=yii::t('app','Contact')?></a></li>
                         </ul>
                     </nav>
                 </div>
@@ -215,7 +217,7 @@ if(isset($_GET['id'])){
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>All departments</span>
+                            <span><?=yii::t('app','All departments')?></span>
                         </div>
 
                         <?php
@@ -261,7 +263,7 @@ if(isset($_GET['id'])){
                             <form action="<?=url::to([$joy])?>">
                                 <input type="hidden" name="id" value="<?=$idCategory?>">
                                 <input type="text" name="search" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                                <button type="submit" class="site-btn"><?=yii::t('app','SEARCH')?></button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -269,8 +271,8 @@ if(isset($_GET['id'])){
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
-                                <span>support 24/7 time</span>
+                                <h5><?=$contact->phone?></h5>
+                                <span><?=$contact->support_time?></span>
                             </div>
                         </div>
                     </div>
@@ -279,10 +281,10 @@ if(isset($_GET['id'])){
                     ?>
                     <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
                         <div class="hero__text">
-                            <span>FRUIT FRESH</span>
-                            <h2>Vegetable <br />100% Organic</h2>
-                            <p>Free Pickup and Delivery Available</p>
-                            <a href="<?=url::to(['ogani/shop-grid'])?>" class="primary-btn" >SHOP NOW</a>
+                            <span><?=$home->text?></span>
+                            <h2><?=$home->title?></h2>
+                            <p><?=$home->subtitle?></p>
+                            <a href="<?=url::to(['ogani/shop-grid'])?>" class="primary-btn" ><?=$home->btn_name?></a>
                         </div>
                     </div>
 
@@ -332,12 +334,12 @@ if(isset($_GET['id'])){
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="<?=url::home()?>"><img src="<?=url::to('@web/img//logo.png')?>" alt=""></a>
+                            <a href="<?=url::home()?>"><img src="<?=url::to('/backend/web/imgs/home/'.$contact->logo)?>" alt=""></a>
                         </div>
                         <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
-                            <li>Email: hello@colorlib.com</li>
+                            <li>Address: <?=$contact->address?></li>
+                            <li>Phone: <?=$contact->phone?></li>
+                            <li>Email: <?=$contact->email?></li>
                         </ul>
                     </div>
                 </div>
@@ -364,11 +366,11 @@ if(isset($_GET['id'])){
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
-                        <h6>Join Our Newsletter Now</h6>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <h6><?=yii::t('app','Join Our Newsletter Now')?></h6>
+                        <p><?=yii::t('app','Get E-mail updates about our latest shop and special offers.')?></p>
                         <form action="#">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit" class="site-btn">Subscribe</button>
+                            <input type="text" placeholder="<?=yii::t('app','Enter your mail')?>">
+                            <button type="submit" class="site-btn"><?=yii::t('app','Subscribe')?></button>
                         </form>
                         <div class="footer__widget__social">
                             <a href="#"><i class="fa fa-facebook"></i></a>

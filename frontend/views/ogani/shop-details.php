@@ -43,10 +43,10 @@ $this->params['breadcrumbs'][] = $this->title;
                         <a href="#" class="primary-btn addcardgroup" data-sum="<?=$model->price_new?>" data-id="<?=$model->id?>">ADD TO CARD</a>
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
-                            <li><b>Availability</b> <span>In Stock</span></li>
-                            <li><b>Shipping</b> <span><?=$model->shipping?></span></li>
-                            <li><b>Weight</b> <span><?=$model->weight?> kg</span></li>
-                            <li><b>Share on</b>
+                            <li><b><?=yii::t('app','Availability')?></b> <span>In Stock</span></li>
+                            <li><b><?=yii::t('app','Shipping')?></b> <span><?=$model->shipping?></span></li>
+                            <li><b><?=yii::t('app','Weight')?></b> <span><?=$model->weight?> kg</span></li>
+                            <li><b><?=yii::t('app','Share on')?></b>
                                 <div class="share">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
                                     <a href="#"><i class="fa fa-twitter"></i></a>
@@ -148,7 +148,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title related__product__title">
-                        <h2>Related Product</h2>
+                        <h2><?=yii::t('app','Related Product')?></h2>
                     </div>
                 </div>
             </div>

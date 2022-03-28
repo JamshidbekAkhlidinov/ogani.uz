@@ -32,11 +32,11 @@ $products = Shop::find()->andWhere('status=1')->limit(8)->all();
          <div class="row">
              <div class="col-lg-12">
                  <div class="section-title">
-                     <h2>Featured Product</h2>
+                     <h2><?=yii::t('app','Featured Product')?></h2>
                  </div>
                  <div class="featured__controls">
                      <ul>
-                         <li class="active" data-filter="*">All</li>
+                         <li class="active" data-filter="*"><?=Yii::t('app','All')?></li>
                          <?php  foreach($shopCat->limit(6)->all() as $shopc):?>
                          <li data-filter=".<?= str_replace(' ','-',strtolower($shopc->category_name))?>"><?=$shopc->category_name?></li>
                          <?php endforeach;?>
@@ -92,7 +92,7 @@ $products = Shop::find()->andWhere('status=1')->limit(8)->all();
          <div class="row">
              <div class="col-lg-12">
                  <div class="section-title from-blog__title">
-                     <h2>From The Blog</h2>
+                     <h2><?=yii::t('app','From The Blog')?></h2>
                  </div>
              </div>
          </div>

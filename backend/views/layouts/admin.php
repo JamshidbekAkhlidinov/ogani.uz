@@ -185,6 +185,29 @@ $user = Yii::$app->user->identity;
                         </a>
                     </li>
 
+                    <li class="<?php if(in_array(Yii::$app->controller->getRoute(),[
+                            'home/index',
+                            'home/create',
+                            'home/update',
+                            'home/view',
+                        ])){echo 'active';}?>">
+                        <a href="<?=url::to(['home/index'])?>">
+                            <i class="fa fa-dashboard"></i> <span>Home</span>
+                        </a>
+                    </li>
+
+
+                    <li class="<?php if(in_array(Yii::$app->controller->getRoute(),[
+                            'contactus/index',
+                            'contactus/create',
+                            'contactus/update',
+                            'contactus/view',
+                        ])){echo 'active';}?>">
+                        <a href="<?=url::to(['contactus/index'])?>">
+                            <i class="fa fa-dashboard"></i> <span>Contactus</span>
+                        </a>
+                    </li>
+
 
                 </ul>
 

@@ -44,6 +44,10 @@ class ComposerStaticInit71422491972caa5a2ae60f53ea8b58b0
             'yii\\' => 4,
             'yeesoft\\multilingual\\' => 21,
         ),
+        'w' => 
+        array (
+            'wokster\\translationmanager\\' => 27,
+        ),
         'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
@@ -168,6 +172,10 @@ class ComposerStaticInit71422491972caa5a2ae60f53ea8b58b0
         'yeesoft\\multilingual\\' => 
         array (
             0 => __DIR__ . '/..' . '/yeesoft/yii2-multilingual/src',
+        ),
+        'wokster\\translationmanager\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/wokster/yii2-translation-manager',
         ),
         'phpDocumentor\\Reflection\\' => 
         array (
@@ -342,9 +350,9 @@ class ComposerStaticInit71422491972caa5a2ae60f53ea8b58b0
         ),
         'Codeception\\' => 
         array (
-            0 => __DIR__ . '/..' . '/codeception/codeception/src/Codeception',
-            1 => __DIR__ . '/..' . '/codeception/stub/src',
-            2 => __DIR__ . '/..' . '/codeception/verify/src/Codeception',
+            0 => __DIR__ . '/..' . '/codeception/stub/src',
+            1 => __DIR__ . '/..' . '/codeception/verify/src/Codeception',
+            2 => __DIR__ . '/..' . '/codeception/codeception/src/Codeception',
         ),
     );
 

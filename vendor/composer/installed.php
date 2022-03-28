@@ -83,12 +83,12 @@
             'dev_requirement' => false,
         ),
         'codeception/codeception' => array(
-            'pretty_version' => '4.1.30',
-            'version' => '4.1.30.0',
+            'pretty_version' => '4.1.31',
+            'version' => '4.1.31.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../codeception/codeception',
             'aliases' => array(),
-            'reference' => 'a035d77d070fa57fad438e07a65447aeca248c45',
+            'reference' => '15524571ae0686a7facc2eb1f40f600e5bbce9e5',
             'dev_requirement' => true,
         ),
         'codeception/lib-asserts' => array(
@@ -209,12 +209,12 @@
             'dev_requirement' => true,
         ),
         'guzzlehttp/psr7' => array(
-            'pretty_version' => '2.1.0',
-            'version' => '2.1.0.0',
+            'pretty_version' => '2.2.1',
+            'version' => '2.2.1.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../guzzlehttp/psr7',
             'aliases' => array(),
-            'reference' => '089edd38f5b8abba6cb01567c2a8aaa47cec4c72',
+            'reference' => 'c94a94f120803a18554c1805ef2e539f8285f9a2',
             'dev_requirement' => true,
         ),
         'kartik-v/bootstrap-fileinput' => array(
@@ -444,12 +444,12 @@
             'dev_requirement' => true,
         ),
         'phpunit/phpunit' => array(
-            'pretty_version' => '8.5.24',
-            'version' => '8.5.24.0',
+            'pretty_version' => '8.5.25',
+            'version' => '8.5.25.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpunit/phpunit',
             'aliases' => array(),
-            'reference' => '293cb0099d75407d971a73f41e51f35b664667ed',
+            'reference' => '9ff23f4dfde040ccd3b8db876192d1184b934158',
             'dev_requirement' => true,
         ),
         'psr/container' => array(
@@ -850,6 +850,15 @@
             'aliases' => array(),
             'reference' => '6964c76c7804814a842473e0c8fd15bab0f18e25',
             'dev_requirement' => true,
+        ),
+        'wokster/yii2-translation-manager' => array(
+            'pretty_version' => 'v1.1',
+            'version' => '1.1.0.0',
+            'type' => 'yii2-extension',
+            'install_path' => __DIR__ . '/../wokster/yii2-translation-manager',
+            'aliases' => array(),
+            'reference' => 'c5f1294ba717b3f70df062cf63a50a8249194df2',
+            'dev_requirement' => false,
         ),
         'yeesoft/yii2-multilingual' => array(
             'pretty_version' => '1.0.3',

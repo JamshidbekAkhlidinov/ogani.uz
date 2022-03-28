@@ -68,12 +68,12 @@ if(isset($_SESSION['card'])){
  
             <div class="col-lg-6">
                 <div class="shoping__checkout">
-                    <h5>Cart Total</h5>
+                    <h5><?=yii::t('app','Cart Total')?></h5>
                     <ul>
-                        <li>Maxsulotlar soni <span><?=$_SESSION['card.soni']?> ta</span></li>
-                        <li>Maxsulotlar Narxi <span>$<?=$_SESSION['card.sum']?></span></li>
+                        <li><?=yii::t('app','Maxsulotlar soni')?> <span><?=$_SESSION['card.soni']?> ta</span></li>
+                        <li><?=yii::t('app','Maxsulotlar Narxi')?> <span>$<?=$_SESSION['card.sum']?></span></li>
                     </ul>
-                    <a href="<?=url::to(['ogani/checkout'])?>" class="primary-btn">Buyurtma qilish</a>
+                    <a href="<?=url::to(['ogani/checkout'])?>" class="primary-btn"><?=yii::t('app','Buyurtma qilish')?></a>
                 </div>
             </div>
         </div>
