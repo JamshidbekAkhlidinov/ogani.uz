@@ -6,6 +6,7 @@ use common\models\Orders;
 use common\models\People;
 use common\models\Shop;
 use common\models\ShopCategory;
+use common\models\Xabarlar;
 use Yii;
 use yii\data\Pagination;
 use yii\web\Controller;
@@ -139,7 +140,11 @@ class OganiController extends Controller
     
     public function actionContact()
     {
-        return $this->render('contact');
+        $model  = new Xabarlar();
+        if($model->load(Yii::$app->request->post())){
+            $model->save();
+        }
+        return $this->render('contact',['model'=>$model]);
     }
 
     

@@ -1,12 +1,16 @@
 <?php
 
 use common\models\Blog;
+use common\models\Home;
 use common\models\Shop;
 use common\models\ShopCategory;
 use yii\helpers\Url;
 $shopCat = ShopCategory::find()->andWhere('status=1');
 $blogLimi3 = Blog::find()->andWhere('status=1')->orderBy('created_at desc')->limit(3)->all();
 $products = Shop::find()->andWhere('status=1')->limit(8)->all();
+
+$rek = Home::find()->limit(1)->orderBy('id desc')->one();
+
 ?>
   <!-- Categories Section Begin -->
   <section class="categories">
@@ -72,12 +76,12 @@ $products = Shop::find()->andWhere('status=1')->limit(8)->all();
          <div class="row">
              <div class="col-lg-6 col-md-6 col-sm-6">
                  <div class="banner__pic">
-                     <img src="img/banner/banner-1.jpg" alt="">
+                     <img src="<?=url::to("/backend/web/imgs/home/".$rek->imgrek1)?>" alt="">
                  </div>
              </div>
              <div class="col-lg-6 col-md-6 col-sm-6">
                  <div class="banner__pic">
-                     <img src="img/banner/banner-2.jpg" alt="">
+                 <img src="<?=url::to("/backend/web/imgs/home/".$rek->imgrek2)?>" alt="">
                  </div>
              </div>
          </div>
