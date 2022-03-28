@@ -142,7 +142,13 @@ class OganiController extends Controller
     {
         $model  = new Xabarlar();
         if($model->load(Yii::$app->request->post())){
-            $model->save();
+            if($model->save()){
+                Yii::$app->session->setFlash('success',"So`rovngiz qabul qilindi. Tez orada siz bilan bog`lanamiz!!");
+            }else{
+                Yii::$app->session->setFlash('error',"Qandaydur xatolik yuz berdi");
+            }
+            
+            return $this->redirect(['ogani/index']);
         }
         return $this->render('contact',['model'=>$model]);
     }
