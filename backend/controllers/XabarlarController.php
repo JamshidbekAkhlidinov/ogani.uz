@@ -34,8 +34,11 @@ class XabarlarController extends DefaultController
      */
     public function actionView($id)
     {
+        $model  =  $this->findModel($id);
+        $model->status = 1;
+        $model->save();
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
         ]);
     }
 

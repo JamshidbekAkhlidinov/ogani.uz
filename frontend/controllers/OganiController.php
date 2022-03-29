@@ -111,6 +111,7 @@ class OganiController extends Controller
 
         $model = new People();
         if($model->load(Yii::$app->request->post())){
+            $model->status = 0;
             $model->save();
             foreach ($_SESSION['card'] as $id => $value) {
                 $orders = new Orders();

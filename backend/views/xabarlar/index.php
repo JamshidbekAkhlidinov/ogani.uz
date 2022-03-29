@@ -17,10 +17,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Create Xabarlar'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
@@ -30,7 +26,19 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            // 'id',
+            // 'status',
+            [
+                'attribute'=>'status',
+                'format'=>'raw',
+                'value'=>function($data){
+                        if($data->status==0){
+                            return "<span class='label label-primary'>Yangi</span>";
+                        }else{
+                            return "<span class=''>Ko'rildi</span>";
+                        }
+                }
+            ],
             'name',
             'phone',
             'text:ntext',

@@ -55,6 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return ($data->status)?"<span class='label label-primary'>Ko'rinadi</span>":"<span class='label label-danger'>Ko'rinmaydi</span>";
                 }
             ],
+            'content',
             [
                 'attribute'=>'created_at',
                 'value'=>function($data){

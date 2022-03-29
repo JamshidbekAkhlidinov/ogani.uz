@@ -70,6 +70,6 @@ class People extends \yii\db\ActiveRecord
      */
     public function getOrders()
     {
-        return $this->hasMany(Orders::className(), ['order_id' => 'id']);
+        return $this->hasMany(Orders::className(), ['order_id' => 'id'])->all();
     }
 }

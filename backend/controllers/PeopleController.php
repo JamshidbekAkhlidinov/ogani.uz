@@ -12,31 +12,9 @@ use yii\filters\VerbFilter;
 /**
  * PeopleController implements the CRUD actions for People model.
  */
-class PeopleController extends Controller
+class PeopleController extends DefaultController
 {
-    /**
-     * @inheritDoc
-     */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
-    }
-
-    /**
-     * Lists all People models.
-     *
-     * @return string
-     */
+ 
     public function actionIndex()
     {
         $searchModel = new PeopleSearch();

@@ -17,6 +17,7 @@ class m220328_083646_create_xabarlar_table extends Migration
             'name'=>$this->string(),
             'phone'=>$this->string(),
             'text'=>$this->text(),
+            'status'=>$this->integer()->defaultValue(0),
             'created_at'=>$this->integer(),
             'updated_at'=>$this->integer(),
         ]);

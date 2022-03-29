@@ -2,6 +2,8 @@
 
 
 use backend\assets\AdminAsset;
+use common\models\People;
+use common\models\Xabarlar;
 use lavrentiev\widgets\toastr\Notification;
 use yii\widgets\Breadcrumbs;
 use yii\bootstrap4\Html;
@@ -10,6 +12,9 @@ use yii\helpers\Url;
 AdminAsset::register($this);
 
 $user = Yii::$app->user->identity;
+
+$xabarlarCount =  Xabarlar::find()->andWhere('status=0')->count();
+$buyurtmaCount =  People::find()->andWhere('status=0')->count();
 
 ?>
 <?php $this->beginPage() ?>
@@ -136,6 +141,7 @@ $user = Yii::$app->user->identity;
                         ])){echo 'active';}?>">
                         <a href="<?=url::to(['people/index'])?>">
                             <i class="fa fa-dashboard"></i> <span>Buyurtmalar</span>
+                            <span class="label label-primary pull-right"><?=$buyurtmaCount?></span>
                         </a>
                     </li>
 
@@ -205,6 +211,18 @@ $user = Yii::$app->user->identity;
                         ])){echo 'active';}?>">
                         <a href="<?=url::to(['contactus/index'])?>">
                             <i class="fa fa-dashboard"></i> <span>Contactus</span>
+                        </a>
+                    </li>
+
+                    <li class="<?php if(in_array(Yii::$app->controller->getRoute(),[
+                            'xabarlar/index',
+                            'xabarlar/create',
+                            'xabarlar/update',
+                            'xabarlar/view',
+                        ])){echo 'active';}?>">
+                        <a href="<?=url::to(['xabarlar/index'])?>">
+                            <i class="fa fa-dashboard"></i> <span>Xabarlar</span>
+                            <span class="label label-primary pull-right"><?=$xabarlarCount?></span>
                         </a>
                     </li>
 

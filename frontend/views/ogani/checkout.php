@@ -1,6 +1,7 @@
 <?php
 
 use yii\bootstrap4\ActiveForm;
+use yii\widgets\MaskedInput;
 
 $this->title = "Checkout";
 $this->params['breadcrumbs'][] = $this->title;
@@ -31,7 +32,9 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?=$form->field($model,'email');?>
                         </div>
                         <div class="col-lg-6">
-                            <?=$form->field($model,'phone');?>
+                            <?=$form->field($model,'phone')->widget(MaskedInput::class,[
+                                'mask'=>'+999-99-999-9999',
+                            ]);?>
                         </div>
                     </div>
                 </div>
