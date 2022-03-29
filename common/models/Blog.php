@@ -85,26 +85,17 @@ class Blog extends \yii\db\ActiveRecord
         return new MultilingualQuery(get_called_class());
     }
     
-    // public function getBlogLangs()
-    // {
-    //     return $this->hasMany(BlogLang::className(), ['owner_id' => 'id']);
-    // }
-
-    /**
-     * Gets query for [[Category]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
+   
     public function getCategory()
     {
         return $this->hasOne(BlogCategory::className(), ['id' => 'category_id']);
     }
 
-    /**
-     * Gets query for [[CreatedBy]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
+    
+    public function getCommentsCount(){
+        return $this->hasMany(Coments::class,['owner_id'=>'id'])->count();
+    }
+
     public function getCreatedBy()
     {
         return $this->hasOne(User::className(), ['id' => 'created_by']);

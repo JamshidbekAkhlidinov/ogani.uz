@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <div class="blog__item__text">
                                     <ul>
                                         <li><i class="fa fa-calendar-o"></i> <?=date('M d, Y')?></li>
-                                        <li><i class="fa fa-comment-o"></i> 5</li>
+                                        <li><i class="fa fa-comment-o"></i> <?=$blog->getCommentsCount()?></li>
                                     </ul>
                                     <h5><a href="<?=url::to(['blog/blog-details','id'=>$blog->id])?>"><?=$blog->title?></a></h5>
                                     <p><?=substr($blog->content,0,30)?></p>

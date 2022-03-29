@@ -50,15 +50,15 @@ class BlogController extends Controller
     public function actionIndex($id = 0, $search = '')
     {
         if($id==0){
-            $blogs = Blog::find()->joinWith('translations')->multilingual()->orderBy('created_at DESC')->where(['like','title',$search]);
+            $blogs = Blog::find()->joinWith('translations')->orderBy('created_at DESC')->andwhere(['like','title',$search]);
         }else{
-            $blogs = Blog::find()->joinWith('translations')->orderBy('created_at DESC')->where('category_id='.$id)->andwhere(['like','title',$search]);
+            $blogs = Blog::find()->joinWith('translations')->orderBy('created_at DESC')->andwhere('category_id='.$id)->andwhere(['like','title',$search]);
         }
 
 
         $page = new Pagination([
             'totalCount'=>$blogs->count(),
-            'defaultPageSize'=>6,
+            'defaultPageSize'=>12,
         ]);
         $model = $blogs->limit($page->limit)->offset($page->offset)->all();
 
