@@ -8,27 +8,12 @@
 </head>
 <body>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 
-    <button id="button">OK</button>
+<script src="https://apis.google.com/js/platform.js"></script>
 
-    <label id="text"></label>
+<div class="g-ytsubscribe" data-channelid="UCUS2FDirz-uI8gpNzNCCTHA" data-layout="default" data-count="default"></div>  
 
-    <script>
-        $(document).ready(function(){
-           $("#button").on('click',function(){
-            $.ajax({
-                url:'http://ogani.uz/restapi/posts',
-                type:'get',
-                success:function(data){
-                    console.log(data[0]['name']);
-                },
-
-            });
-           });
-        });
-    </script>
   
 </body>
 </html>
