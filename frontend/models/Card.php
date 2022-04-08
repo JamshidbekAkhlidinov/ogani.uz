@@ -18,7 +18,7 @@ class Card extends Model{
             ];
         }
 
-        $_SESSION['card.soni'] = isset($_SESSION['card.soni'])?$_SESSION['card.soni'] +=$soni:$_SESSION['card.son'] = $soni;
+        $_SESSION['card.soni'] = isset($_SESSION['card.soni'])?$_SESSION['card.soni'] +=$soni:$_SESSION['card.soni'] = $soni;
         $_SESSION['card.sum'] = isset($_SESSION['card.sum'])?$_SESSION['card.sum'] +=($soni*$products->price_new):$_SESSION['card.sum'] = $soni*$products->price_new;
 
     }
